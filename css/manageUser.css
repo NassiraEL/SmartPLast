@@ -1,0 +1,112 @@
+.section_User{
+    width: 100%;
+}
+
+.User_search_add{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.search, .User_search_add button{
+    width: 70%;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    background-color: #ECECEC;
+}
+
+.User_search_add button{
+    width: 20%;
+    border: none;
+    background-color: #4788F4;
+    cursor: pointer;
+}
+
+.User_search_add button i{
+    margin-left: 10px;
+}
+
+.User_search_add button p{
+    color: #fff;
+    font-size: 16px;
+}
+
+input[type = 'text']{
+    width: 80%;
+    height: 100%;
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
+}
+
+input[type = 'text']:focus{
+    outline: none;
+}
+
+.fa-search{
+    width: 10%;
+    text-align: center;
+    transform: rotateY(180deg);
+    font-size: 25px;
+}
+
+
+.table{
+    margin-top: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 95%;
+    background-color: #FAF9F8;
+    border-radius: 10px;
+}
+  
+td, th {
+    font-size: 16px;
+    text-align: center;
+    padding: 10px;
+}
+
+th{
+    padding: 20px;
+}
+
+
+@media (max-width:400px) {
+    .fa-search {
+        width: 25%;
+        font-size: 20px;
+    }
+    .search{
+        width: 65%;
+    }
+    .User_search_add button{
+        width: 30%;
+    }
+    .User_search_add button p{
+        font-size: 10px;
+    }
+    .User_search_add button i{
+        font-size: 15px;
+    }
+    .fa-map-marker-alt, .fa-user{
+        font-size: 16px;
+    }
+    .table{
+        width: 100%;
+        overflow-x:scroll;
+    }
+    
+    
+    
+}

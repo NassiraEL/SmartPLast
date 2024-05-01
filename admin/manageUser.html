@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>لوحة القيادة</title>
+    <title>دارة المستخدمين</title>
     <link rel="stylesheet" href="../css/logo.css">
     <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/manageUser.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
@@ -78,33 +79,39 @@
 
     </header>
 
-    <section class="section_dash">
-        <h1>لوحة القيادة</h1>
-        <div class="allDash">
-            <div class="dash">
-                <div class="info_dash" style="background-color: #E2FFED;">
-                    <h3>إجمالي المسؤولين</h3>
-                    <span id="admin">8</span>
-                </div>
-                <div class="info_dash" style="background-color: #FBFFE0;">
-                    <h3>إجمالي المجمعين</h3>
-                    <span id="collector">8</span>
-                </div>
-            </div>
-            <div class="dash">
-                <div class="info_dash" style="background-color: #EEF6FF;">
-                    <h3>إجمالي الطلبات</h3>
-                    <span id="command">8</span>
-                </div>
-                <div class="info_dash" style="background-color: #FFEFEF;">
-                    <h3>إجمالي الشركاء </h3>
-                    <span id="partner">8</span>
-                </div>
+    <section class="section_User" dir="rtl">
+        <h1>إدارة المستخدمين</h1>
+        <div class="User_search_add">
+            <button class="btnNewUser">
+                <i class="fas fa-plus-circle"></i>
+                <p>اضافة مستخدم</p>
+            </button>
+            <div class="search">
+                <i class="fa fa-search"></i>
+                <input type="text" placeholder="ابحث ... "  onkeyup="search_user(this.value, 'user')">
             </div>
         </div>
+        <div class="table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>الاسم</th>
+                        <th>بريد الإلكتروني</th>
+                        <th>الهاتف</th>
+                        <th>الموقع</th>
+                        <th>الحالة</th>
+                        <th>تعديل</th>
+                        <th>حذف</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody"></tbody>
+            </table>
+        </div>
+
+        
+        
     </section>
 
     <script src="../js/home.js"></script>
-    <script src="../js/dashboard.js"></script>
 </body>
 </html>
