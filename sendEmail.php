@@ -12,7 +12,7 @@ function validate($data){
 if(!empty($_POST['email'])){
     try{
         $email = validate($_POST["email"]);
-        $db= new PDO("mysql:host=localhost3307;dbname=coolplast", "root", "");
+        $db= new PDO("mysql:host=localhost:3307;dbname=coolplast", "root", "");
 
         //verefier si il est partner
         $stm = $db->prepare("SELECT * FROM `partner` WHERE PARTNER_EMAIL=:email");
