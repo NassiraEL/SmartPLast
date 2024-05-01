@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول</title>
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body dir="rtl">
+    <div class="section2" id="section2">
+        <div class="header">
+            <h2>تسجيل الدخول</h2>
+            <p>مستخدم جديد؟<a href="signUp.html">سجِّل الآن</a></p>
+        </div>
+        <form action="" method="POST">
+            <div class="champ" id="reponce"></div>
+            <div class="champ">
+                <label for="email">أدخل بريدك الإلكتروني</label>
+                <input type="email" name="email" required>
+            </div>
+            <div class="champ">
+                <label for="password">أدخل كلمة المرور</label>
+                <input type="password" name="password" required>
+            </div>
+            <div class="btn">
+                <button name="login" type="submit" id="btn">تسجيل الدخول
+                </button>
+            </div>
+            <div class="lien">
+                <a href="sendEmail.html">هل نسيت كلمة المرور؟</a>
+            </div>
+        </form>
+
+        <p class="or">أو</p>
+    <div id="g_id_onload"
+        data-client_id="984101030995-s7um9nf4tegoprupo2lls9je2mntugrt.apps.googleusercontent.com"
+        data-context="signin"
+        data-ux_mode="popup"
+        data-callback="login"
+        data-auto_prompt="false">
+   </div>
+   
+   <div class="g_id_signin"
+        data-type="standard"
+        data-shape="pill"
+        data-theme="filled_blue"
+        data-text="signin_with"
+        data-size="large"
+        data-locale="ar"
+        data-logo_alignment="left">
+   </div>
+    </div>
+    <div class="section1" id="section1">
+        <div class="img1">
+            <img src="images/img2.png" alt="">
+        </div>
+    </div>
+
+    <script src="js/login.js"></script>
+
+    <!-- login with google -->
+
+    <script src="https://accounts.google.com/gsi/client" async></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/jwt-decode@4.0.0/build/cjs/index.min.js"></script> -->
+    <script>
+        function login(responce){
+            console.log(responce);
+        }
+    </script>
+
+    <!-- login with facebook -->
+
+    <script>
+
+        // function statusChangeCallback(response) {  // Called with the results from FB.getLoginStatus().
+        //   console.log('statusChangeCallback');
+        //   console.log(response);                   // The current login status of the person.
+        //   if (response.status === 'connected') {   // Logged into your webpage and Facebook.
+        //     testAPI();  
+        //   } else {                                 // Not logged into your webpage or we are unable to tell.
+        //     document.getElementById('status').innerHTML = 'Please log ' +
+        //       'into this webpage.';
+        //   }
+        // }
+      
+      
+        // function checkLoginState() {               // Called when a person is finished with the Login Button.
+        //   FB.getLoginStatus(function(response) {   // See the onlogin handler
+        //     statusChangeCallback(response);
+        //   });
+        // }
+      
+      
+        // window.fbAsyncInit = function() {
+        //   FB.init({
+        //     appId      : '1867955310289906',
+        //     cookie     : true,                     // Enable cookies to allow the server to access the session.
+        //     xfbml      : true,                     // Parse social plugins on this webpage.
+        //     version    : 'v6.0'           // Use this Graph API version for this call.
+        //   });
+      
+      
+        //   FB.getLoginStatus(function(response) {   // Called after the JS SDK has been initialized.
+        //     statusChangeCallback(response);        // Returns the login status.
+        //   });
+        // };
+       
+        // function testAPI() {                      // Testing Graph API after login.  See statusChangeCallback() for when this call is made.
+        //   console.log('Welcome!  Fetching your information.... ');
+        //   FB.api('/me', function(response) {
+        //     console.log('Successful login for: ' + response.name);
+        //     document.getElementById('status').innerHTML =
+        //       'Thanks for logging in, ' + response.name + '!';
+        //   });
+        // }
+      
+      </script>
+      
+      
+      <!-- The JS SDK Login Button -->
+      
+      <!-- <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+      </fb:login-button>
+      
+      <div id="status">
+      </div> -->
+      
+      <!-- Load the JS SDK asynchronously -->
+      <!-- <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script> -->
+
+</body>
+</html>

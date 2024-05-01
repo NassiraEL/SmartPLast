@@ -1,0 +1,165 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'tenor';
+}
+
+@font-face {
+    font-family: 'tenor';
+    src: url('Tajawal-Regular.ttf');
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+
+/* section 2 */
+
+.section2{
+    width: 500px;
+    padding: 40px;
+    background-color: #4CCD993a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 20px;
+}
+
+.header{
+    width: 100%;
+    height: 130px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.header h2{
+    color: #4D4C4C;
+    font-family: 'tenor';
+}
+
+.header p{
+    color: #8F8E8E;
+    margin-top: 10px;
+    font-family: 'tenor';
+}
+
+.header p a{
+    text-decoration: none;
+    color: #8F8E8E;
+}
+
+form{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.champ{
+    width: 90%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+input{
+    padding: 10px 20px;
+    width: 100%;
+    border: none;
+    border-radius: 20px;
+    background-color: #ECECEC;
+}
+
+input:focus{
+    outline-color: #8F8E8E;
+}
+
+label{
+    margin-bottom: 10px;
+    padding-left: 10px;
+    color: #8F8E8E;
+    font-family: 'tenor';
+}
+
+.btn{
+    margin: 10px;
+}
+
+.btn button{
+    padding: 10px 40px;
+    border: none;
+    border-radius: 15px;
+    background-color: #4CCD99;
+    cursor: pointer;
+    color: #fff;
+}
+
+.lien{
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lien a{
+    text-decoration: none;
+    color: #8F8E8E;
+    font-family: "tenor";
+    font-size: 12px;
+}
+
+#section3{
+    display: none;
+}
+
+#section4{
+    display: none;
+}
+
+.p{
+    text-align: center;
+}
+
+
+@media (max-width:500px){
+    .section2{
+        background-color: #fff;
+        width: 100%;
+    }
+    .header h2, .header p{
+        width: 90%;
+        margin-bottom: 2vmin;
+    }
+    .p{
+        text-align: start;
+    }
+    .h2{
+        width: 100%;
+        text-align: start;
+    }
+    .btn{
+        width: 90%;
+    }
+    .btn button{
+        width: 100%;
+    }
+    
+}
+

@@ -1,0 +1,254 @@
+.orders{
+    width: 100%;
+    min-height: 100vh;
+}
+
+.section_Command{
+    width: 100%;
+}
+
+.command_search_add{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.search, .command_search_add button{
+    width: 70%;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    background-color: #ECECEC;
+}
+
+.command_search_add button{
+    width: 20%;
+    border: none;
+    background-color: #4788F4;
+    cursor: pointer;
+}
+
+.command_search_add button i{
+    margin-left: 10px;
+}
+
+.command_search_add button p{
+    color: #fff;
+    font-size: 16px;
+}
+
+input[type = 'text']{
+    width: 80%;
+    height: 100%;
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
+}
+
+input[type = 'text']:focus{
+    outline: none;
+}
+
+.fa-search{
+    width: 10%;
+    text-align: center;
+    transform: rotateY(180deg);
+    font-size: 25px;
+}
+
+.table{
+    margin-top: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 95%;
+    background-color: #FAF9F8;
+    border-radius: 10px;
+}
+  
+td, th {
+    font-size: 16px;
+    text-align: center;
+    padding: 10px;
+}
+
+th{
+    padding: 20px;
+}
+
+select{
+    padding: 2px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: orange;
+    color: #fff;
+}
+
+option{
+    font-size: 13px;
+    background-color: #ECECEC;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.select_collector{
+    background-color: #4788F4;
+}
+
+.fa-map-marker-alt{
+    color: red;
+}
+
+.fa-user{
+    color: #4788F4;
+}
+
+
+/* partie data of the partner  */
+.data_partner, .addCommand{
+    background-color: #fff;
+    width: 50%;
+    height: 370px;
+    position: fixed;
+    top: 33%;
+    box-shadow: 1px 8px 15px gray;
+    border-radius: 5px;
+    display: none;
+}
+
+
+
+
+.fa-times{
+    position: absolute;
+    top: 10px !important;
+    color: #555 !important;
+}
+
+.info_partner{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.info_partner input{
+    background-color: #eee !important;
+    padding: 10px;
+    width: 90%;
+    border-radius: 10px;
+    padding-left: 40px;
+}
+
+.iconUser{
+    color: #555 !important;
+    position: absolute !important;
+    left: 12%;
+    font-size: 15px !important;
+}
+
+.info_partner input[type= "submit"]{
+    cursor: pointer;
+    border: none;
+    text-align: start;
+    font-size: 16px;
+}
+
+/* partie new command */
+
+.new_order, .addCommand .reponce{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.new_order select, .reponce h3{
+    background-color: #eee;
+    color: #555;
+    width: 80%;
+    margin-bottom: 20px;
+    padding: 8px;
+}
+
+
+
+.reponce h3{
+    color:#fff;
+    text-align: center;
+    font-size: 16px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.reponce h3.err{
+    background:#d64040e2;
+}
+
+.reponce h3.succes{
+    background:#1fc51fb1; 
+}
+
+#btnAddCommand{
+    background-color: #4788F4;
+    color: #fff;
+    width: 80%;
+    padding: 8px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+@media (max-width:800px){
+    .data_partner, .addCommand{
+        width: 90%;
+    }
+}
+
+
+@media (max-width:400px) {
+    .fa-search {
+        width: 25%;
+        font-size: 20px;
+    }
+    .command_search_add button{
+        width: 25%;
+    }
+    .command_search_add button p{
+        font-size: 10px;
+    }
+    .command_search_add button i{
+        font-size: 15px;
+    }
+    .fa-map-marker-alt, .fa-user{
+        font-size: 16px;
+    }
+    select{
+        padding: 0px 7px;
+    }
+    th{
+        padding: 20px 0px;
+    }
+    .data_partner, .addCommand{
+        width: 95%;
+    }
+    
+    
+}

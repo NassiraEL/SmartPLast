@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة القيادة</title>
+    <link rel="stylesheet" href="../css/logo.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <div class="logo1">
+                <div class="logo2">
+                    <div class="circle">
+                    </div>
+                    <div class="man">
+                        <div class="head"></div>
+                        <div class="body">
+                            <div class="par1"></div>
+                            <div class="par2"></div>
+                            <div class="foot1"></div>
+                            <div class="foot2"></div>
+                            <div class="circle1"></div>
+                            <div class="hand"></div>
+                            <div class="circle2"></div>
+                        </div>
+                        
+                    </div>
+                    <div class="allFlech">
+                        <div class="smalFlech"></div>
+                        <div class="flech1">
+                            <div class="flech_part1"></div>
+                            <div class="flech_part2"></div>
+                        </div>
+                        <div class="flech2">
+                            <div class="flech_part1"></div>
+                            <div class="flech_part2 f2"></div>
+                        </div>
+                        <div class="flech3">
+                            <div class="flech_part1"></div>
+                            <div class="flech_part2 f3"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <label>SmartPlast</label>
+        </div>
+        <i id="menu" class="fa fa-bars"></i>
+        <ul class="nav2">
+            <li>
+                <a href="dashboard.html"> لوحة القيادة</a>
+                <i class="fas fa-th-large"></i>
+            </li>
+            <li>
+                <a href="#">إدارة المسؤولين</a>
+                <i class="fas fa-user-cog"></i>
+            </li>
+            <li>
+                <a href="#">إدارة المجمعين</a>
+                <i class="fas fa-briefcase"></i>
+            </li>
+            <li>
+                <a href="#">إدارة الشركاء</a>
+                <i class="fas fa-users"></i>
+            </li>
+            <li>
+                <a href="manageCommand.html">  إدارة الطلبات</a>
+                <i class="fas fa-boxes"></i>
+            </li>
+            <li id="logout">
+                <a>خروج </a>
+                <i class="fas fa-sign-out-alt"></i>
+            </li>
+            <i class="fa fa-times" id="close"></i>
+        </ul>
+
+    </header>
+
+    <section class="section_dash">
+        <h1>لوحة القيادة</h1>
+        <div class="allDash">
+            <div class="dash">
+                <div class="info_dash" style="background-color: #E2FFED;">
+                    <h3>إجمالي المسؤولين</h3>
+                    <span id="admin">8</span>
+                </div>
+                <div class="info_dash" style="background-color: #FBFFE0;">
+                    <h3>إجمالي المجمعين</h3>
+                    <span id="collector">8</span>
+                </div>
+            </div>
+            <div class="dash">
+                <div class="info_dash" style="background-color: #EEF6FF;">
+                    <h3>إجمالي الطلبات</h3>
+                    <span id="command">8</span>
+                </div>
+                <div class="info_dash" style="background-color: #FFEFEF;">
+                    <h3>إجمالي الشركاء </h3>
+                    <span id="partner">8</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="../js/home.js"></script>
+    <script src="../js/dashboard.js"></script>
+</body>
+</html>

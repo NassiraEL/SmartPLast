@@ -1,0 +1,199 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 8px;
+}
+
+
+.logo2{
+    position: relative;
+    width: 7em;
+    height: 7em;
+}
+
+.circle{
+    width: 5em;
+    height: 5em;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 0.3em solid #4CCD99;
+    border-radius: 50%;
+}
+
+.man{
+    position: absolute;
+    top: 1em;
+    left: 1em;
+    width: 2em;
+    height: 3em;
+}
+
+.head{
+    width: 0.7em;
+    height: 0.7em;
+    border-radius: 50%;
+    background-color: #4CCD99;
+    position: absolute;
+    top: 0.1em;
+    left: 0.2em;
+}
+
+.body{
+    width: 100%;
+    height: 70%;
+    position: absolute;
+    bottom: 0;
+}
+
+.par1{
+    width: 0.7em;
+    height: 0.7em;
+    border-radius: 50%;
+    background-color: #4CCD99;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.par2{
+    width: .98em;
+    height: 1.3em;
+    background-color: #4CCD99;
+    position: absolute;
+    top: .13em;
+    left: -0.17em;
+    clip-path: polygon( 85% 18%, 90% 100%, 0% 100%, 15% 18%);
+}
+
+.foot1{
+    width: 0.5em;
+    height: 1.25em;
+    background-color: #4CCD99;
+    position: absolute;
+    bottom: -0.1em;
+    left: -.24em;
+    transform: rotate(7deg);
+    clip-path: polygon( 100% 20%, 50% 100%, 0% 100%, 15% 18%);
+}
+
+.foot2{
+    width: 0.5em;
+    height: 1.8em;
+    background-color: #4CCD99;
+    position: absolute;
+    top: 1em;
+    left: .29em;
+    transform: rotate(-4deg);
+    clip-path: polygon( 100% 20%, 100% 100%, 50% 100%, 15% 18%);
+}
+
+.circle1{
+    width: 0.1em;
+    height: .1em;
+    border-radius: 50%;
+    background-color: #fff;
+    position: absolute;
+    top: 1.39em;
+    left: .24em;
+
+}
+
+.hand{
+    width: 0.4em;
+    height: 1.3em;
+    background-color: #4CCD99;
+    position: absolute;
+    top: -0.32em;
+    left: .59em;
+    transform: rotate(-70deg);
+    clip-path: polygon( 94% 20%, 100% 100%, 50% 100%, 15% 18%);
+    border-radius: 0% 0% 50% 100%;
+    
+}
+
+.circle2{
+    width: .05em;
+    height: .05em;
+    border-radius: 50%;
+    background-color: #fff;
+    position: absolute;
+    top: 0.416em;
+    left: .703em;
+
+}
+
+.allFlech{
+    width: 3em;
+    height: 4.6em;
+    background-color: #fff;
+    position: absolute;
+    left: 2.9em;
+    top: .9em;
+    transform: rotate(30deg);
+}
+
+.smalFlech{
+    width: .8em;
+    height: .8em;
+    background-color: #4CCD99; 
+    clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+    transform: rotate(60deg); 
+    position: absolute;
+    top: 4.28em;
+    left: 0.5em;
+}
+
+.flech1{
+    position: absolute;
+    top: -.1em;
+    left: -1.9em;
+}
+
+.flech_part1{
+    position: absolute;
+    transform: rotate(-90deg);
+    width: 3em;
+    height: 3em;
+    border-bottom: .6em solid #4CCD99;
+    clip-path: polygon(0% 0%, 100% 100%, 0% 100%);
+    border-radius: 0% 0% 50% 50%;
+}
+
+.flech_part2{
+    width: 1.4em;
+    height: .9em;
+    background-color: #4CCD99; 
+    clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+    transform: rotate(-30deg); 
+    position: absolute;
+    top: 0.2em;
+    left: 1.75em;
+}
+
+.flech2{
+    position: absolute;
+    top: -.3em;
+    left: 0em;
+    transform: rotate(30deg);
+}
+
+.flech3{
+    position: absolute;
+    top: 1.2em;
+    left: 2.6em;
+    transform: rotate(90deg);
+}
+
+.f2{
+    transform: rotate(8deg);
+    top: 0.25em;
+    left: 2em;
+}
+
+.f3{
+    transform: rotate(8deg);
+    top: 0.25em;
+    left: 2em;
+}

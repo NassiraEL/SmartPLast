@@ -1,0 +1,202 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #555;
+    font-family: 'tenor';
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body{
+    width: 100%;
+}
+
+
+@font-face {
+    font-family: 'tenor';
+    src: url('Tajawal-Regular.ttf');
+}
+
+header{
+    height: 10vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+    z-index: 10;
+}
+
+.logo{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    padding-left: 50px;
+}
+
+.logo1{
+    margin-top: 10px;
+}
+
+.logo label{
+    font-size: 18px;
+    font-weight: bold;
+    font-family: "tenor";
+}
+
+
+ul{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    height: 100%;
+    padding: 10px;
+    width: 500px;
+}
+
+ul li {
+    padding: 40px;
+    list-style: none;
+    height: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+ul li a{
+    font-size: 16px;
+    font-family: "tenor";
+    text-decoration: none;
+    color: #555;
+    width: max-content;
+}
+
+.fa{
+    font-size: 27px;
+    padding-right: 10px;
+    cursor: pointer;
+}
+
+
+i.fas{
+    font-size: 20px;
+    color: #fff;
+}
+
+.nav2{
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #4CCD99;
+    display: none;
+}
+
+.nav2 li{
+   height: 10%;
+   width: 40%;
+}
+
+.nav2 li a{
+    text-align: end;
+    color: #fff;
+    padding-right: 30px;
+}
+
+ul li a:hover{
+    cursor: pointer;
+}
+
+i.fa-times{
+    font-size: 25px;
+    position: absolute;
+    top: 20px;
+    right: 5px;
+    cursor: pointer;
+    color: #fff;
+}
+
+.section_dash{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1{
+    width: 100%;
+    text-align: center;
+    font-family: "tajawal";
+    font-size: 25px;
+    padding: 30px;
+}
+
+.allDash{
+    width: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.dash{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.info_dash{
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    flex-direction: column;
+    background-color: pink;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.info_dash h3{
+    font-size: 25px;
+    font-family: "tajawal";
+}
+
+.info_dash span{
+    font-size: 50px;
+    font-weight: bold;
+}
+
+@media (max-width:1030px) {
+    .allDash{
+        width: 45%;
+    }
+
+}
+
+@media (max-width:955px) {
+    .dash{
+        flex-direction: column;
+    }
+}
+
+@media (max-width:400px) {
+    .nav2 li {
+        width: 72%;
+    }
+    
+}
+
+
+

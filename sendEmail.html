@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نسيت كلمة المرور</title>
+    <link rel="stylesheet" href="css/sendEmail.css">
+</head>
+<body dir="rtl">
+    <div class="section2" id="section2">
+        <div class="header">
+            <h2>هل نسيت كلمة المرور؟</h2>
+            <p>أدخل بريدك الإلكتروني للحصول على رمز تأكيد</p>
+        </div>
+        <form action="" method="POST">
+            <div class="champ" id="reponce1"></div>
+            <div class="champ">
+                <label for="email">أدخل بريدك الإلكتروني</label>
+                <input type="email" name="email" required>
+            </div>
+            <div class="btn">
+                <button name="send" type="submit" id="send">إرسال</button>
+            </div>
+            <div class="lien">
+                <a href="login.html">تسجيل الدخول</a>
+            </div>
+        </form>
+    </div>
+
+    <div class="section2 section3" id="section3">
+        <div class="header">
+            <h2 class="h2">رمز التحقق من عنوان البريد الإلكتروني</h2>
+            <p class="p">لقد قمنا بإرسال رمز التحقق إلى عنوان بريدك الإلكتروني</p>
+        </div>
+        <form action="" method="POST">
+            <div class="champ" id="reponce2"></div>
+            <div class="champ">
+                <label for="code">أدخل رمز التحقق</label>
+                <input type="number" name="code" required>
+            </div>
+            <div class="btn">
+                <button name="validate" type="submit" id="validate">تأكيد</button>
+            </div>
+            <div class="lien">
+                <a href="login.html">الرجوع</a>
+            </div>
+        </form>
+    </div>
+
+    <div class="section2 section4" id="section4">
+        <div class="header">
+            <h2 class="h2">قم بتغيير كلمة المرور</h2>
+        </div>
+        <form action="" method="POST">
+            <div class="champ" id="reponce3"></div>
+            <div class="champ">
+                <label for="pass">أدخل كلمة مرور جديدة</label>
+                <input type="text" name="pass" required>
+            </div>
+            <div class="champ">
+                <label for="passConf">أدخل تأكيد كلمة المرور</label>
+                <input type="text" name="passConf" required>
+            </div>
+            <div class="btn">
+                <button name="change" type="submit" id="change">تغيير</button>
+            </div>
+            <div class="lien">
+                <a href="login.html">تسجيل الدخول</a>
+            </div>
+        </form>
+    </div>
+
+    <script src="js/sendEmail.js"></script>
+</body>
+</html>

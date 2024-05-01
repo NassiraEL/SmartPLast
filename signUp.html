@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إنشاء حساب جديد</title>
+    <link rel="stylesheet" href="css/signUp.css">
+</head>
+<body onload="getLocation()" dir="rtl">
+    <div class="section1" id="section1">
+        <div class="img1">
+            <img src="images/img1.png" alt="">
+        </div>
+    </div>
+
+    <div class="section2" id="section2">
+        <div class="header">
+            <h2>إنشاء حساب جديد</h2>
+            <p>هل أنت مسجل بالفعل؟ <a href="login.html"> تسجيل الدخول</a></p>
+        </div>
+        <form action="" method="POST">
+            <div class="champ" id="reponce"></div>
+            <div class="champ">
+                <label for="name">أدخل اسمك<span>*</span></label>
+                <input type="text" name="name" autocomplete="off" required>
+            </div>
+            <div class="champ">
+                <label for="tel">ادخل رقم هاتفك<span>*</span></label>
+                <input type="tel" name="tel" autocomplete="off" required>
+            </div>
+            <div class="champ">
+                <label for="email">أدخل بريدك الإلكتروني<span>*</span></label>
+                <input type="email" name="email" autocomplete="off" required>
+            </div>
+            <div class="champ">
+                <label for="password">أدخل كلمة المرور<span>*</span></label>
+                <input type="password" name="password" autocomplete="off" required>
+            </div>
+            <div class="champ">
+                <label for="password">أدخل تأكيد كلمة المرور<span>*</span></label>
+                <input type="password" name="passwordConf" autocomplete="off" required>
+            </div>
+            <div class="champ">
+                <input type="hidden" name="latitude" autocomplete="off" id="latitude">
+            </div>
+            <div class="champ">
+                <input type="hidden" name="longitude" autocomplete="off" id="longitude">
+            </div>
+            <div class="btn">
+                <button name="signUp" type="submit" id="btn">إنشاء</button>
+            </div>
+        </form>
+    </div>
+    <script src="js/location.js"></script>
+    <script src="js/singUp.js"></script>
+</body>
+</html>

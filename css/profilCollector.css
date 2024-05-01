@@ -1,0 +1,129 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'tenor';
+    src: url('TenorSans-Regular.ttf');
+}
+
+
+@font-face {
+    font-family: 'tajawal';
+    src: url('Tajawal-Regular.ttf');
+}
+
+
+header{
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo, .logout{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'tenor';
+}
+
+label , .logout i{
+    font-size: 16px !important;
+    color: #555;
+}
+
+
+.logout label{
+    font-family: "tajawal";
+    padding-right: 8px;
+}
+
+.logout label, .logout i{
+    cursor: pointer;
+}
+
+.section1 h2{
+    font-size: 25px;
+    text-align: center;
+    font-family: "tajawal";
+    color: #555;
+    padding: 25px;
+}
+
+.command button, .command h4, .command p,.command i{
+    font-size: 16px;
+}
+
+.command{
+    padding: 10px;
+    background-color: #eee;
+    color: #555;
+    border-radius: 10px;
+    margin: 15px;
+}
+
+.info_cmnd{
+    width: 50%;
+}
+
+.command, .info1{
+    display: flex;
+    align-items: center;
+}
+
+.allBottons{
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.info1{
+    justify-content: flex-end;
+}
+
+.info1 h4{
+    padding-left: 10px;
+}
+
+.info1 i{
+    color: red;
+    cursor: pointer;
+}
+
+.info_cmnd div, .info_cmnd p{
+    padding: 2px;
+}
+
+
+
+.allBottons button{
+    padding: 5px 12px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.done{
+    background-color: #4CCD99;
+}
+
+.encour{
+    background-color: #4788F4;
+}
+
+@media (min-width:700px) {
+    .command{
+        width: 50%;
+    }
+
+    .allCommand{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: column;
+    }
+}

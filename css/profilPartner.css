@@ -1,0 +1,331 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'tenor';
+    src: url('TenorSans-Regular.ttf');
+}
+
+
+@font-face {
+    font-family: 'tajawal';
+    src: url('Tajawal-Regular.ttf');
+}
+
+/* body{
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+} */
+
+header{
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo, .logout{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'tenor';
+}
+
+label , .logout i, .section2 p{
+    font-size: 16px !important;
+    color: #555;
+}
+
+.states h3:not(:first-child){
+    font-size: 38px !important;
+}
+
+.states .state1{
+    font-size: 24px !important;
+}
+
+.logout label{
+    font-family: "tajawal";
+    padding-right: 8px;
+}
+
+.logout label, .logout i{
+    cursor: pointer;
+}
+
+
+.section1, .section2{
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: none;
+}
+
+
+.section1 h2, span, .section2 h2, .section3 h2{
+    padding: 20px;
+    text-align: center;
+    font-family: "tajawal";
+    color: #555;
+    font-size: 27px;
+}
+
+span{
+    padding: 0;
+    color: #4CCD99;
+}
+
+.section1 .icon_cammand{
+    text-align: center;
+}
+
+.section1 .icon_cammand img{
+    width: 300px;
+    cursor: pointer;
+}
+
+
+
+.allstate{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.states{
+    position: relative;
+    width: 600px;
+    height: 60vh;
+}
+
+.circle_validate{
+    position: absolute;
+    background-color: #4CCD99;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.circle_validate i{
+    font-size: 16px;
+    color: #fff;
+    visibility: hidden;
+}
+
+.div{
+    position: absolute;
+    width: 25%;
+    height: 20px;
+    background-color: #4CCD99;
+}
+
+.triangle{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: #4CCD99;
+    clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+    transform: rotate(90deg);
+}
+
+.demi_circle{
+    position: absolute;
+    width: 35%;
+    height: 50%;
+    border-top-right-radius: 40%;
+    border-bottom-right-radius: 40%;
+    border: 20px solid #4CCD99;
+    border-left: none;
+}
+
+.circle_validate1{
+    top: 25px;
+}
+
+.div1{
+    top: 40px;
+    left: 65px;
+}
+
+.triangle1{
+    top: 25px;
+    left: 38%;
+}
+
+.demi_circle1{
+    top: 40px;
+    left: 48%;
+}
+
+.circle_validate2{
+    top: 50%;
+    left: 38%;
+}
+
+.div2{
+    top: 99%;
+    left: 48%;
+}
+
+.demi_circle2{
+    transform: rotate(180deg);
+    top: 55%;
+}
+
+.triangle2{
+    top: 93%;
+    left: 38%;
+}
+
+.circle_validate3{
+    top: 93%;
+    left: 75%;
+}
+
+.state1, .state2, .state3{
+    position: absolute;
+    visibility: hidden;
+}
+
+.state1{
+    top: -4%;
+    left: -7%;
+    color: red;
+}
+
+.state2{
+    top: 34%;
+    left: 30%;
+    color: orange;
+}
+
+.state3{
+    top: 80%;
+    left: 68%;
+    color: #4CCD99;
+}
+
+.section2 p{
+    position: absolute;
+    top: 96%;
+    left: 62%;
+    text-decoration: underline;
+    cursor: pointer;
+    visibility: hidden;
+}
+
+.section3{
+    margin-top: 50px;
+}
+
+.allcommand{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.section3 .command{
+    width: 90%;
+    background-color: #eee;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.command h4{
+    font-size: 16px;
+    font-family: "tajawal";
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+}
+
+.time{
+    padding: 5px;
+}
+
+.time, .time1{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.time1{
+    justify-content: center;
+}
+
+.time1 p{
+    padding-left: 5px;
+    font-size: 16px;
+}
+
+.time2{
+    color: #4CCD99;
+}
+
+
+@media (max-width:580px) {
+    .section2 h2{
+        margin-bottom: 10px;
+    }
+    .states{
+        width: 350px;
+        height: 40vh;
+    }
+    .demi_circle1{
+        left: 63%;
+    }
+    .triangle1{
+        left: 49%;
+    }
+    .triangle2{
+        left: 40%;
+    }
+    .circle_validate2{
+        left: 42%;
+    }
+    .circle_validate3{
+        left: 85%;
+    }
+    .div2{
+        left: 55%;
+    }
+    .div{
+        height: 15px;
+    }
+    .demi_circle{
+        border: 15px solid #4CCD99;
+        border-left: none;
+    }
+    .triangle,.circle_validate{
+        height: 40px;
+        width: 40px;
+    }
+    .state1{
+        top: -3% ;
+        left: 0%;
+        color: red;
+    }
+
+    .state3{
+        left: 61%;
+        top: 75%;
+    }
+    .section2 p{
+        top: 81%;
+        left: 79%;
+    }
+    .time1 p{
+        font-size: 10px;
+    }
+}
