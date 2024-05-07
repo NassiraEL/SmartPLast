@@ -1,8 +1,7 @@
 <?php
 $total = [];
 try{
-    $db = new PDO("mysql:host=localhost:3307;dbname=coolplast", "root", "");
-    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    include_once '../connection.php';
 
     //count le nombre des admins
     $stm = $db->prepare("SELECT COUNT(*) AS `TOTAL_ADMIN` FROM `admin`");

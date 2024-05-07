@@ -7,8 +7,7 @@ $collectorId =  $data["CL_id"];
 
 
 try{
-    $db = new PDO("mysql:host=localhost:3307;dbname=coolplast", "root", "");
-    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    include_once 'connection.php';
     
     $date_cmnd = date('Y-m-d H:i:s');
     $state = "INPROCESS";

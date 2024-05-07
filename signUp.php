@@ -29,7 +29,7 @@ if(!empty($_POST['name'])  && !empty($_POST['tel'])  && !empty($_POST['email']) 
             echo "صيغة البريد الإلكتروني غير صالحة";
         }else{
             try{
-                $db= new PDO("mysql:host=localhost:3307;dbname=coolplast", "root", "");
+                include_once 'connection.php';
                 $stm = $db->prepare("SELECT * FROM `partner` WHERE PARTNER_EMAIL=:email");
                 $stm->bindParam(":email", $email);
                 $stm->execute();

@@ -2,13 +2,12 @@
 $json_data = file_get_contents('php://input');
 $data = json_decode($json_data, true);
 
-if($data[1] == "command"){
-    $word = $data[0];
-    $all_command = array();
+try{
+    include_once '../connection.php';
 
-    try{
-        $db = new PDO("mysql:host=localhost:3307;dbname=coolplast", "root", "");
-        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    if($data[1] == "command"){
+        $word = $data[0];
+        $all_command = array();
 
         //get all command with informations of partner and collector
         $stm = $db->prepare("SELECT
@@ -31,7 +30,7 @@ if($data[1] == "command"){
         if($stm->rowCount() > 0){
             foreach ($stm->fetchAll() as $row) {
                 $id_collector = $row["COLLECTOR_ID"];
-    
+
                 $command = array(
                     "partner" => array(
                         $row["PARTNER_NAME"],
@@ -56,7 +55,7 @@ if($data[1] == "command"){
                 );
 
                 array_push($command["collector"], $info_collector);
-    
+
                 //get all collector name exipt this collector
                 if($command["collector"][0]["name"] == NULL){
                     $stm2 = $db->prepare("SELECT COLLECTOR_ID, COLLECTOR_NAME FROM `collector`");
@@ -67,7 +66,7 @@ if($data[1] == "command"){
                     $stm2->execute();
                 }
                 
-    
+
                 foreach($stm2->fetchAll() as $row2){
                     $info_collector = array( 
                         "id" => $row2["COLLECTOR_ID"],
@@ -75,7 +74,7 @@ if($data[1] == "command"){
                     );
                     array_push($command["collector"], $info_collector);
                 };
-    
+
                 if($command["collector"][0]["name"] != NULL){
                     $info_collector = array( 
                         "id" => NULL,
@@ -83,23 +82,58 @@ if($data[1] == "command"){
                     );
                     array_push($command["collector"], $info_collector);
                 }
-    
-    
+
+
                 // Ajouter la commande au tableau complet de commandes
                 array_push($all_command, $command);
             }
-    
+
             echo json_encode($all_command);
         }else{
             $res = NULL;
             echo json_encode($res);
         }
 
+    }else{
+        $word = $data[0];
+        $table = $data[1];
+        $userName = strtoupper($table) . '_NAME';
+        $userState = strtoupper($table) . '_STATE';
+        $userEmail = strtoupper($table) . '_EMAIL';
+        $userPhone = strtoupper($table) . '_PHONE';
+        $userID = strtoupper($table) . '_ID';
+        $userLongitude = strtoupper($table) . '_LONGITUDE';
+        $userLatitude = strtoupper($table) . '_LATITUDE';
+        $stm = $db->prepare("SELECT * FROM $table WHERE $userName  LIKE '%$word%' OR $userState LIKE '%$word%' ORDER BY $userState");
+        $stm->execute();
+
+        if($stm->rowCount() > 0){
+            $allUser = array();
+            foreach($stm->fetchAll() as $row){
+                $user = array(
+                    "id" => $row[$userID],
+                    "name" => $row[$userName],
+                    "email" => $row[$userEmail],
+                    "phone" => $row[$userPhone],
+                    "longitude" => $row[$userLongitude],
+                    "latitude" => $row[$userLatitude],
+                    "state" => $row[$userState]
+                );
+                array_push($allUser, $user);
+    
+            }
+            echo json_encode($allUser);
+        }else{
+            $res = NULL;
+            echo json_encode($res);
+        }
+
         
-
-
-    }catch(PDOEXception $e){
-        echo $e->getMessage();
     }
+
+}catch(PDOEXception $e){
+    echo $e->getMessage();
 }
+
+
 ?>

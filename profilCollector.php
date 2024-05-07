@@ -2,8 +2,7 @@
 $email = $_COOKIE['emailUser'];
 
 try{
-    $db = new PDO("mysql:host=localhost:3307;dbname=coolplast", "root", "");
-    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    include_once 'connection.php';
 
     $stm = $db->prepare("SELECT `COLLECTOR_ID` FROM `collector` WHERE `COLLECTOR_EMAIL` = :email");
     $stm->bindParam(":email", $email);

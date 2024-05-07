@@ -23,7 +23,7 @@ if(!empty($_POST['pass'])  && !empty($_POST['passConf'])){
         echo "كلمات المرور غير متطابقة";
     }else{
         try{
-            $db = new PDO("mysql:host=localhost:3307;dbname=coolplast", "root", "");
+            include_once 'connection.php';
             $stm = $db->prepare("UPDATE $who_forgot SET `{$who}_PASSWORD`=:password WHERE `{$who}_EMAIL` = :email");
             $stm->bindParam(":password", $pass);
             $stm->bindParam(":email", $email);

@@ -10,108 +10,170 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <div class="logo1">
-                <div class="logo2">
-                    <div class="circle">
-                    </div>
-                    <div class="man">
-                        <div class="head"></div>
-                        <div class="body">
-                            <div class="par1"></div>
-                            <div class="par2"></div>
-                            <div class="foot1"></div>
-                            <div class="foot2"></div>
-                            <div class="circle1"></div>
-                            <div class="hand"></div>
-                            <div class="circle2"></div>
+    <div class="partUser">
+        <header>
+            <div class="logo">
+                <div class="logo1">
+                    <div class="logo2">
+                        <div class="circle">
                         </div>
-                        
-                    </div>
-                    <div class="allFlech">
-                        <div class="smalFlech"></div>
-                        <div class="flech1">
-                            <div class="flech_part1"></div>
-                            <div class="flech_part2"></div>
+                        <div class="man">
+                            <div class="head"></div>
+                            <div class="body">
+                                <div class="par1"></div>
+                                <div class="par2"></div>
+                                <div class="foot1"></div>
+                                <div class="foot2"></div>
+                                <div class="circle1"></div>
+                                <div class="hand"></div>
+                                <div class="circle2"></div>
+                            </div>
+                            
                         </div>
-                        <div class="flech2">
-                            <div class="flech_part1"></div>
-                            <div class="flech_part2 f2"></div>
-                        </div>
-                        <div class="flech3">
-                            <div class="flech_part1"></div>
-                            <div class="flech_part2 f3"></div>
+                        <div class="allFlech">
+                            <div class="smalFlech"></div>
+                            <div class="flech1">
+                                <div class="flech_part1"></div>
+                                <div class="flech_part2"></div>
+                            </div>
+                            <div class="flech2">
+                                <div class="flech_part1"></div>
+                                <div class="flech_part2 f2"></div>
+                            </div>
+                            <div class="flech3">
+                                <div class="flech_part1"></div>
+                                <div class="flech_part2 f3"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <label>SmartPlast</label>
             </div>
-            <label>SmartPlast</label>
-        </div>
-        <i id="menu" class="fa fa-bars"></i>
-        <ul class="nav2">
-            <li>
-                <a href="dashboard.html"> لوحة القيادة</a>
-                <i class="fas fa-th-large"></i>
-            </li>
-            <li>
-                <a href="manageUser.html">إدارة المسؤولين</a>
-                <i class="fas fa-user-cog"></i>
-            </li>
-            <li>
-                <a href="manageUser.html">إدارة المجمعين</a>
-                <i class="fas fa-briefcase"></i>
-            </li>
-            <li>
-                <a href="manageUser.html">إدارة الشركاء</a>
-                <i class="fas fa-users"></i>
-            </li>
-            <li>
-                <a href="manageCommand.html">  إدارة الطلبات</a>
-                <i class="fas fa-boxes"></i>
-            </li>
-            <li id="logout">
-                <a>خروج </a>
-                <i class="fas fa-sign-out-alt"></i>
-            </li>
-            <i class="fa fa-times" id="close"></i>
-        </ul>
+            <i id="menu" class="fa fa-bars"></i>
+            <ul class="nav2">
+                <li>
+                    <a href="dashboard.html"> لوحة القيادة</a>
+                    <i class="fas fa-th-large"></i>
+                </li>
+                <li>
+                    <a href="manageUser.html?user=admin">إدارة المسؤولين</a>
+                    <i class="fas fa-user-cog"></i>
+                </li>
+                <li>
+                    <a href="manageUser.html?user=collector">إدارة المجمعين</a>
+                    <i class="fas fa-briefcase"></i>
+                </li>
+                <li>
+                    <a href="manageUser.html?user=partner">إدارة الشركاء</a>
+                    <i class="fas fa-users"></i>
+                </li>
+                <li>
+                    <a href="manageCommand.html">  إدارة الطلبات</a>
+                    <i class="fas fa-boxes"></i>
+                </li>
+                <li id="logout">
+                    <a>خروج </a>
+                    <i class="fas fa-sign-out-alt"></i>
+                </li>
+                <i class="fa fa-times" id="close"></i>
+            </ul>
+    
+        </header>
+    
+        <section class="section_User" dir="rtl">
+            <h1 class="titelPage"></h1>
+            <div class="User_search_add">
+                <button class="btnNewUser">
+                    <i class="fas fa-plus-circle"></i>
+                    <p class="content_btnAdd"></p>
+                </button>
+                <div class="search">
+                    <i class="fa fa-search"></i>
+                    <input type="text" placeholder="ابحث ... " onkeyup="search_User(this.value)">
+                </div>
+            </div>
+            <div class="table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>الاسم</th>
+                            <th>بريد الإلكتروني</th>
+                            <th>الهاتف</th>
+                            <th>الموقع</th>
+                            <th>الحالة</th>
+                            <th>تعديل</th>
+                            <th>حذف</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody"></tbody>
+                </table>
+            </div>
+        </section>
+    </div>
 
-    </header>
-
-    <section class="section_User" dir="rtl">
-        <h1>إدارة المستخدمين</h1>
-        <div class="User_search_add">
-            <button class="btnNewUser">
-                <i class="fas fa-plus-circle"></i>
-                <p>اضافة مستخدم</p>
-            </button>
-            <div class="search">
-                <i class="fa fa-search"></i>
-                <input type="text" placeholder="ابحث ... "  onkeyup="search_user(this.value, 'user')">
+    <div class="edit_data_user" dir="rtl">
+        <i class="fa fa-times closeWindow" ></i>
+        <h1> تعديل المعلومات </h1>
+        <div class="reponce repEdit"></div>
+        <div class="all_data_user">
+            <div class="info_user">
+                <input type="text" placeholder="الاسم">
+                <i class="fa fa-user iconUser"></i>
+            </div>
+            <div class="info_user">
+                <input type="email" placeholder="البريد الإلكتروني">
+                <i class="fa fa-envelope iconUser"></i>
+            </div>
+            <div class="info_user">
+                <input type="number"  placeholder="الهاتف">
+                <i class="fa fa-phone iconUser"></i>
+            </div>
+            <div class="info_user">
+                <input type="text" placeholder="ضع الرابط">
+                <i class="fa fa-map-marker-alt iconUser" ></i>
+            </div>
+            <div class="info_user">
+                <input type="text" style="display: none;">
+            </div>
+            <div class="info_user">
+                <input type="submit" value="تغيير" id="btn_edit_User">
             </div>
         </div>
-        <div class="table">
-            <table>
-                <thead>
-                    <tr>
-                        <th>الاسم</th>
-                        <th>بريد الإلكتروني</th>
-                        <th>الهاتف</th>
-                        <th>الموقع</th>
-                        <th>الحالة</th>
-                        <th>تعديل</th>
-                        <th>حذف</th>
-                    </tr>
-                </thead>
-                <tbody id="tbody"></tbody>
-            </table>
-        </div>
+    </div>
 
-        
-        
-    </section>
+    <div class="addUser" dir="rtl">
+        <i class="fa fa-times closeWindow" ></i>
+        <h1 class="titel_of_windowAdd">اضافة  طلب</h1>
+        <div class="reponce repAdd"></div>
+        <div class="new_User">
+            <div class="info_user">
+                <input type="text" placeholder="*الاسم">
+                <i class="fa fa-user iconUser"></i>
+            </div>
+            <div class="info_user">
+                <input type="email" placeholder="*البريد الإلكتروني">
+                <i class="fa fa-envelope iconUser"></i>
+            </div>
+            <div class="info_user">
+                <input type="password" placeholder="*كلمة المرور">
+                <i class="fa fa-key iconUser"></i>
+            </div>
+            <div class="info_user">
+                <input type="number" placeholder="*الهاتف">
+                <i class="fa fa-phone iconUser"></i>
+            </div>
+            <div class="info_user">
+                <input type="text" placeholder="ضع الرابط">
+                <i class="fa fa-map-marker-alt iconUser" ></i>
+            </div>
+            <div class="info_user">
+                <input type="submit" value="اضافة" id="btn_add_User">
+            </div>         
+            
+        </div>
+    </div>
 
     <script src="../js/home.js"></script>
+    <script src="../js/manageUser.js"></script>
 </body>
 </html>

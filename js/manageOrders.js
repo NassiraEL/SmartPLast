@@ -251,17 +251,15 @@ btnNewOrder.addEventListener("click", ()=>{
 btnAddCommand.addEventListener("click", ()=>{
     let idPartner = selectPartner.value;
     let idCollector = selectCollector.value;
-    let data ={
-        typeTable : "command",
-        content : [idPartner, idCollector]
-    }
+    let content = [idPartner, idCollector];
+    let data_send =["command", content]
 
     fetch("add.php", {
         headers : {
             "Content-type" : "application/json"
         },
         method : "POST",
-        body : JSON.stringify(data)
+        body : JSON.stringify(data_send)
     })
     .then(rep => rep.json())
     .then(data =>{

@@ -5,8 +5,7 @@ $nbr_cmnd = 0;
 
 
 try{
-    $db = new PDO("mysql:host=localhost:3307;dbname=coolplast", "root", "");
-    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    include_once 'connection.php';
     $db->beginTransaction();
     
     $stm = $db->prepare("SELECT * FROM `partner` WHERE PARTNER_EMAIL = :email ");

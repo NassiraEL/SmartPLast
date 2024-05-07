@@ -6,8 +6,7 @@ $data = array(
 
 array_push($data["allCollector"] , ["null", "لا أحد"]);
 try{
-    $db = new PDO("mysql:host=localhost:3307;dbname=coolplast", "root", "");
-    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    include_once '../connection.php';
 
     //get name and id of all the partners
     $stm = $db->prepare("SELECT `PARTNER_ID`, `PARTNER_NAME` FROM `partner`");
