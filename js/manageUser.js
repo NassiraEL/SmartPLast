@@ -201,7 +201,8 @@ btnEdit.addEventListener("click",()=>{
                 td[1].innerHTML =  inputs[1].value;
                 td[2].innerHTML =  inputs[2].value;
                 td[3].innerHTML =  `<i class='fa fa-map-marker-alt' onclick="locationUser(${data[1]}, ${data[2]})"></i>`;
-                console.log(td[3])
+                td[5].innerHTML =`<td><i class='fa fa-edit' onclick="edit_user(['${newData[0]}', '${newData[1]}','${newData[2]}', '${newData[3]}', '${data[1]}', '${data[2]}'])"></i></td>`;
+                console.log(td[5])
             }else{
                 repEdit.innerHTML = `<h3 class="err">${data[0]}</h3>`;
             }
