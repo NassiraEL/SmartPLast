@@ -200,6 +200,11 @@ i.fa-times{
 }
 
 
+.section2{
+    width: 100%;
+    height: 100vh;
+}
+
 
 .detaill2{
     background-color: #4CCD99;
@@ -217,7 +222,7 @@ i.fa-times{
 }
 
 .section3{
-    height: 50vh;
+    height: 60vh;
     background-image: linear-gradient(#fff 40%, #4CCD99);
 }
 
@@ -278,7 +283,7 @@ i.fa-times{
         display: block;
     }
     .section1{
-        height: 110vh;
+        height: 160vh;
     }
     .bodysection1{
         flex-direction: column;
@@ -296,6 +301,9 @@ i.fa-times{
      .liens button{
         width: 55%;
     }
+    .section2{
+        height: 160vh;
+    }
     .detaill2{
         border-top-left-radius: 10%;
         border-top-right-radius: 10%;
@@ -305,19 +313,11 @@ i.fa-times{
         padding-bottom: 10vh;
         height: 70vh;
     }
-    .section2{
-        top: 20vh;
-    }
-    .contact{
-        display: flex;
-        flex-direction: column;
-        height: 50%;
-    }
     .cont, .cont2{
         justify-content: flex-start;
     }
     .section3{
-        height: 90vh;
+        height: 60vh;
     }
     .section3_header{
         flex-direction: column;
@@ -335,7 +335,7 @@ i.fa-times{
 
 
 
-@media (max-width:700px) {
+@media (max-width:800px) {
     .logo{
         padding-left: 10px;
     }
@@ -364,6 +364,9 @@ i.fa-times{
      .liens button{
         width: 90%;
     }
+    .section2{
+        height: 160vh;
+    }
 
     .detaill2{
         border-top-left-radius: 3vmin;
@@ -374,20 +377,14 @@ i.fa-times{
         padding-bottom: 10vh;
         height: 70vh;
     }
-    .section2{
-        top: 0;
+    .section3{
+        height: 60vh;
     }
-    .contact{
-        display: flex;
-        flex-direction: column;
-        height: 50%;
-    }
+    
     .cont, .cont2{
         justify-content: flex-start;
     }
-    .section3{
-        height: 90vh;
-    }
+    
     .section3_header{
         flex-direction: column;
     }  
@@ -406,9 +403,9 @@ i.fa-times{
     i.fa{
         display: block;
     }
-    .section1{
+    /* .section1{
         height: 95vh;
-    }
+    } */
     .bodysection1{
         flex-direction: column;
     }
@@ -425,6 +422,9 @@ i.fa-times{
      .liens button{
         width: 90%;
     }
+    .section2{
+        height: 110vh;
+    }
 
     .detaill2{
         border-top-left-radius: 3vmin;
@@ -435,9 +435,6 @@ i.fa-times{
         padding-bottom: 10vh;
         height: 70vh;
     }
-    .section2{
-        top: 0;
-    }
     .contact{
         display: flex;
         flex-direction: column;
@@ -446,8 +443,8 @@ i.fa-times{
     .cont, .cont2{
         justify-content: flex-start;
     }
-    .section3{
-        height: 90vh;
+    .section2{
+        height: 110vh;
     }
     .section3_header{
         flex-direction: column;

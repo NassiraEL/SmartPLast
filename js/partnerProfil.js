@@ -1,4 +1,4 @@
-let section1 = document.querySelector(".section1");
+let section1 = document.querySelectorAll(".section1");
 let section2 = document.querySelector(".section2");
 let iconCommand = document.querySelector(".iconCommand");
 let valide1 = document.querySelector(".validate1");
@@ -10,6 +10,7 @@ let state3 = document.querySelector(".state3");
 let newCammand = document.querySelector(".section2 p");
 let logout = document.querySelector(".logout");
 let section3 = document.querySelector(".section3");
+let iconDonnation = document.querySelector(".iconDonnation");
 
 let xml = new XMLHttpRequest();
 xml.open("GET", "profilPartner.php", true);
@@ -47,14 +48,18 @@ xml.onload = function (){
                         state3.style.visibility = "visible";
                         newCammand.style.visibility = "visible";
                     }else{
-                        section1.style.display = "flex";
+                        section1.forEach(e=>{
+                            e.style.display = "flex";
+                        })
                     }
                     if(data[1] != null){
                         section3.innerHTML = data[1];
                     }
                     break;
                 default:
-                    section1.style.display = "flex";
+                    section1.forEach(e=>{
+                        e.style.display = "flex";
+                    })
             }  
             
         }
@@ -64,12 +69,15 @@ xml.onload = function (){
 
 newCammand.addEventListener("click", function(){
     section2.style.display = "none";
-    section1.style.display = "flex";
+    section1.forEach(e=>{
+        e.style.display = "flex";
+    })
+    
 })
 
-function addCommand(){
+function addCommand(type){
     let xml = new XMLHttpRequest();
-        xml.open("GET", "addCommand.php", "true");
+        xml.open("GET", "addCommand.php?typeCommand="+type, "true");
         xml.setRequestHeader("Content-Type", "application/json")
         xml.onload = function(){
             if(xml.readyState === XMLHttpRequest.DONE){
@@ -91,8 +99,17 @@ iconCommand.addEventListener("click", function(){
         this.style.zIndex = "-2"; 
         document.querySelector(".trush").classList.add("trushAnimation");
         setTimeout(function(){
-        addCommand();
+        addCommand(0);
         }, 2500);
+    }
+    
+})
+
+iconDonnation.addEventListener("click", function(){
+    const confirmation = confirm("هل انت متاكد من التبرع بالبلاستيك ؟ ");
+    if (confirmation) {
+        alert("شكراً لتبرعكم ");
+        addCommand(1);
     }
     
 })

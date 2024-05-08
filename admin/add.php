@@ -24,20 +24,22 @@ try{
     if($data[0] == "command"){
         $date = date('Y-m-d H:i:s');
         if($data[1][1] == "null"){
-            $sql = "INSERT INTO `command` (PARTNER_ID, COLLECTOR_ID, ADMIN_ID ,COMMAND_STATE, COMMAND_DATE) VALUES(:idP, NULL, :adminID, 'ATTEND', :cmndDate)";
+            $sql = "INSERT INTO `command` (PARTNER_ID, COLLECTOR_ID, ADMIN_ID ,COMMAND_STATE, COMMAND_DATE, COMMAND_TYPE) VALUES(:idP, NULL, :adminID, 'ATTEND', :cmndDate, :typecmnd)";
             $stm = $db->prepare($sql);
             $stm->bindParam(":idP", $data[1][0]);
             $stm->bindParam(":adminID", $adminID);
             $stm->bindParam(":cmndDate", $date);
+            $stm->bindParam(":typecmnd", $data[1][2]);
             $stm->execute();
         }else{
-            $sql = "INSERT INTO `command` (PARTNER_ID, COLLECTOR_ID, ADMIN_ID, COMMAND_STATE, COMMAND_DATE, COMMAND_COLLECT_DATE) VALUES(:idP, :idC, :adminID,  'INPROCESS', :cmndDate, :dateCollect)";
+            $sql = "INSERT INTO `command` (PARTNER_ID, COLLECTOR_ID, ADMIN_ID, COMMAND_STATE, COMMAND_DATE, COMMAND_COLLECT_DATE, COMMAND_TYPE) VALUES(:idP, :idC, :adminID,  'INPROCESS', :cmndDate, :dateCollect, :typecmnd)";
             $stm = $db->prepare($sql);
             $stm->bindParam(":idP", $data[1][0]);
             $stm->bindParam(":idC", $data[1][1]);
             $stm->bindParam(":adminID", $adminID);
             $stm->bindParam(":dateCollect", $date);
             $stm->bindParam(":cmndDate", $date);
+            $stm->bindParam(":typecmnd", $data[1][2]);
             $stm->execute();
             
         }
@@ -46,6 +48,7 @@ try{
 
         if($stm->rowCount() >0){
             $rep = true;
+            
         }else{
             $rep = false;
         }
@@ -97,20 +100,23 @@ try{
             }
 
             //validate URL 
-            $parsed_url = parse_url($url);
-            if (isset($parsed_url['path'])) {
-                $coordinates = explode(',', trim($parsed_url['path'], '@')); 
+            $latitude = NULL;
+            $longitude = NULL;
 
-                //longitude
-                $longitude = $coordinates[1];
+            if (preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$url)) {
+                $parsed_url = parse_url($url);
+                if (isset($parsed_url['path'])) {
+                    $coordinates = explode(',', trim($parsed_url['path'], '@')); 
 
-                //latitude
-                $getLatitude =explode('@', $coordinates[0]) ;
-                $latitude = $getLatitude[1]; 
-            }else{
-                $latitude = NULL;
-                $longitude = NULL;
+                    //longitude
+                    $longitude = $coordinates[1];
+
+                    //latitude
+                    $getLatitude =explode('@', $coordinates[0]) ;
+                    $latitude = $getLatitude[1]; 
+                }
             }
+        
 
             //insert the data in the table 
             if($nbrErr <= 0){
@@ -131,7 +137,28 @@ try{
                 $stm->execute();
 
                 if($stm->rowCount() >0){
-                    $reponce = true;
+                    $idUser = $db->lastInsertId();
+                    $idUser_column = strtoupper($table) . "_ID";
+                    $table_manage = "manage_" . $table;
+
+                    if ($table == "admin") {
+                        $column_idUserManage = "OTHER_ADMIN_ID";
+                    } else {
+                        $column_idUserManage = $idUser_column;
+                    }
+        
+                    
+                    $actionDate = date('Y-m-d H:i:s');
+                    
+                    $stm3 = $db->prepare("INSERT INTO $table_manage (`ADMIN_ID`, $column_idUserManage, `ADMIN_ACTION`, `ADMIN_DATE_ACTION`) VALUES (:adminId, :idUser, 'ADD', :actionDate)");
+                    $stm3->bindParam(":adminId", $adminID);
+                    $stm3->bindParam(":idUser", $idUser);
+                    $stm3->bindParam(":actionDate", $actionDate);
+                    $stm3->execute();
+                        if($stm3->rowCount() >0){
+                            $reponce = true;
+                        }
+                    
                 }
 
                 

@@ -8,6 +8,7 @@ let btnNewOrder = document.querySelector(".btnNewOrder");
 let window_addCommand  = document.querySelector(".addCommand");
 let selectPartner = window_addCommand.querySelector("#partner");
 let selectCollector = window_addCommand.querySelector("#collector");
+let select_type_command =  window_addCommand.querySelector("#select_type_command");
 let divReponce = window_addCommand.querySelector(".reponce");
 let allinputs = section_data_partner.querySelector(".all_data_Partner");
 let typeStates = [['ATTEND', 'red', 'في الانتظار'], ['INPROCESS', '#F69F0C', 'قيد التجميع'], ['DONE', '#4CCD99', 'تم التسليم']]; 
@@ -251,8 +252,10 @@ btnNewOrder.addEventListener("click", ()=>{
 btnAddCommand.addEventListener("click", ()=>{
     let idPartner = selectPartner.value;
     let idCollector = selectCollector.value;
-    let content = [idPartner, idCollector];
-    let data_send =["command", content]
+    let type_command = select_type_command.value;
+    let content = [idPartner, idCollector, type_command];
+    let data_send =["command", content];
+    console.log(data_send);
 
     fetch("add.php", {
         headers : {

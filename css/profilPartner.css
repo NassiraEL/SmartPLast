@@ -67,6 +67,8 @@ label , .logout i, .section2 p{
 }
 
 
+
+
 .section1 h2, span, .section2 h2, .section3 h2{
     padding: 20px;
     text-align: center;
@@ -273,6 +275,49 @@ span{
     color: #4CCD99;
 }
 
+.donation{
+    height: 90vh;
+}
+
+.iconDonnation{
+    width: 25em;
+    height: 25em;
+    background-color: #eee;
+    border-radius: 50%;
+    font-size: 10px;
+    cursor: pointer;
+    box-shadow: 1px 1px 10px gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.iconDonnation i{
+    font-size: 120px;
+    color: #4CCD99;
+}
+
+
+.lienDonnation{
+    width: 100%;
+    text-align: center;
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lienDonnation a{
+    font-size: 18px;
+    margin-right: 10px;
+    color: #555;
+}
+
+.lienDonnation i{
+    font-size: 25px;
+    color: #4788F4;
+}
+
 
 @media (max-width:580px) {
     .section2 h2{
@@ -327,5 +372,8 @@ span{
     }
     .time1 p{
         font-size: 10px;
+    }
+    .donation h2{
+        padding: 31px;
     }
 }

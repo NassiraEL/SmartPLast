@@ -21,16 +21,21 @@ try {
 
     //validate URL 
     $url = $newData[4];
-    $parsed_url = parse_url($url);
-    if (isset($parsed_url['path'])) {
-        $coordinates = explode(',', trim($parsed_url['path'], '@')); 
+    $latitude = NULL;
+    $longitude = NULL;
 
-        //longitude
-        $longitude = $coordinates[1];
+    if (preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$url)) {
+        $parsed_url = parse_url($url);
+        if (isset($parsed_url['path'])) {
+            $coordinates = explode(',', trim($parsed_url['path'], '@')); 
 
-        //latitude
-        $getLatitude =explode('@', $coordinates[0]) ;
-        $latitude = $getLatitude[1]; 
+            //longitude
+            $longitude = $coordinates[1];
+
+            //latitude
+            $getLatitude =explode('@', $coordinates[0]) ;
+            $latitude = $getLatitude[1]; 
+        }
     }
 
     //update the data
