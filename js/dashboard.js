@@ -13,7 +13,7 @@ logoutBotton.addEventListener("click", function(){
         if(xml.readyState === XMLHttpRequest.DONE){
             if(xml.status === 200){
                 if(this.responseText == "true"){
-                    window.location.href = "../home.html";
+                    window.location.href = "../index.html";
                 }
             }
         }     

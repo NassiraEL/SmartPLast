@@ -11,6 +11,7 @@ let selectCollector = window_addCommand.querySelector("#collector");
 let select_type_command =  window_addCommand.querySelector("#select_type_command");
 let divReponce = window_addCommand.querySelector(".reponce");
 let allinputs = section_data_partner.querySelector(".all_data_Partner");
+let location_user = document.querySelector(".location_user")
 let typeStates = [['ATTEND', 'red', 'في الانتظار'], ['INPROCESS', '#F69F0C', 'قيد التجميع'], ['DONE', '#4CCD99', 'تم التسليم']]; 
 
 
@@ -23,7 +24,7 @@ logoutBotton.addEventListener("click", function(){
         if(xml.readyState === XMLHttpRequest.DONE){
             if(xml.status === 200){
                 if(this.responseText == "true"){
-                    window.location.href = "../home.html";
+                    window.location.href = "../index.html";
                 }
             }
         }     
@@ -208,9 +209,10 @@ function get_data_partner(data_partner){
     inputs[1].value = data_partner[1];
     inputs[2].value = `0${data_partner[2]}`;
 
-    function callFunction_location(){
-        locationUser(data_partner[3],  data_partner[4]);
-    }
+    location_user.innerHTML = `<div class="info_partner" onclick="locationUser(${data_partner[4]},  ${data_partner[3]})">
+                                <input type="submit" value="اكتشف الموقع">
+                                <i class="fa fa-map-marker-alt iconUser" ></i>
+                            </div>`;
 }
 
 //icon close windows

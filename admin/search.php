@@ -16,8 +16,8 @@ try{
                             p.PARTNER_PHONE,
                             p.PARTNER_LONGITUDE, 
                             p.PARTNER_LATITUDE, 
-                            C.COLLECTOR_NAME, 
-                            C.COLLECTOR_ID, 
+                            c.COLLECTOR_NAME, 
+                            c.COLLECTOR_ID, 
                             cmnd.COMMAND_STATE,
                             cmnd.COMMAND_ID
                             FROM `partner` AS p INNER JOIN `command` AS cmnd ON p.PARTNER_ID = cmnd.PARTNER_ID

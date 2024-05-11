@@ -17,13 +17,13 @@ try{
 
 
      //count le nombre des partners
-     $stm = $db->prepare("SELECT COUNT(*) AS `TOTAL_PARTNER` FROM `PARTNER`");
+     $stm = $db->prepare("SELECT COUNT(*) AS `TOTAL_PARTNER` FROM `partner`");
      $stm->execute();
      $result = $stm->fetch();
      $total['TOTAL_PARTNER'] = $result['TOTAL_PARTNER'];
 
      //count le nombre des COMMANDS
-     $stm = $db->prepare("SELECT COUNT(*) AS `TOTAL_COMMAND` FROM `COMMAND`");
+     $stm = $db->prepare("SELECT COUNT(*) AS `TOTAL_COMMAND` FROM `command`");
      $stm->execute();
      $result = $stm->fetch();
      $total['TOTAL_COMMAND'] = $result['TOTAL_COMMAND'];

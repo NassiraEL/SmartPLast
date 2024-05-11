@@ -377,3 +377,10 @@ span{
         padding: 31px;
     }
 }
+
+@media (max-width:380px) {
+    .states {
+        width: 335px;
+        height: 35vh;
+    }
+}

@@ -37,7 +37,7 @@ if(!empty($_POST['email'])){
                     echo "البريد الإلكتروني غير موجود";
                 }else{
                     $_SESSION["who_forgot"] = "admin";
-                    $mail->setFrom('coolplast51@gmail.com','CoolPlast');
+                    $mail->setFrom('coolplast51@gmail.com','SmartPlast');
                     $mail->addAddress($email);
                     $mail->Subject = "رمز التحقق";
                     $code = rand(100000, 999999);
@@ -49,7 +49,7 @@ if(!empty($_POST['email'])){
                 }
             }else{
                 $_SESSION["who_forgot"] = "collector";
-                $mail->setFrom('coolplast51@gmail.com','CoolPlast');
+                $mail->setFrom('coolplast51@gmail.com','SmartPlast');
                 $mail->addAddress($email);
                 $mail->Subject = "رمز التحقق";
                 $code = rand(100000, 999999);
@@ -61,7 +61,7 @@ if(!empty($_POST['email'])){
             }
         }else{
             $_SESSION["who_forgot"] = "partner";
-            $mail->setFrom('coolplast51@gmail.com','CoolPlast');
+            $mail->setFrom('coolplast51@gmail.com','SmartPlast');
             $mail->addAddress($email);
             $mail->Subject = "رمز التحقق";
             $code = rand(100000, 999999);

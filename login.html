@@ -32,24 +32,36 @@
         </form>
 
         <p class="or">أو</p>
-    <div id="g_id_onload"
-        data-client_id="984101030995-s7um9nf4tegoprupo2lls9je2mntugrt.apps.googleusercontent.com"
-        data-context="signin"
-        data-ux_mode="popup"
-        data-callback="login"
-        data-auto_prompt="false">
-   </div>
-   
-   <div class="g_id_signin"
-        data-type="standard"
-        data-shape="pill"
-        data-theme="filled_blue"
-        data-text="signin_with"
-        data-size="large"
-        data-locale="ar"
-        data-logo_alignment="left">
-   </div>
-    </div>
+
+          <!-- login with google -->
+
+        <script src="https://accounts.google.com/gsi/client" async></script>
+        <script src="https://cdn.jsdelivr.net/npm/jwt-decode@4.0.0/build/cjs/index.min.js"></script>
+
+        <script>
+            function hundelCredentialResponse(responce){
+                console.log(responce);
+            }
+        </script>
+
+        <div id="g_id_onload"
+            data-client_id="23257866820-gb5k2sjv3r022hhh1phs341t9d3p1ooj.apps.googleusercontent.com"
+            data-context="signin"
+            data-ux_mode="popup"
+            data-callback="hundelCredentialResponse"
+            data-auto_prompt="false">
+        </div>
+    
+        <div class="g_id_signin"
+            data-type="standard"
+            data-shape="pill"
+            data-theme="filled_blue"
+            data-text="signin_with"
+            data-size="large"
+            data-locale="ar"
+            data-logo_alignment="left">
+        </div>
+        </div>
     <div class="section1" id="section1">
         <div class="img1">
             <img src="images/img2.png" alt="">
@@ -58,15 +70,8 @@
 
     <script src="js/login.js"></script>
 
-    <!-- login with google -->
-
-    <script src="https://accounts.google.com/gsi/client" async></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/jwt-decode@4.0.0/build/cjs/index.min.js"></script> -->
-    <script>
-        function login(responce){
-            console.log(responce);
-        }
-    </script>
+  
+    
 
     <!-- login with facebook -->
 

@@ -127,3 +127,25 @@ label , .logout i{
         flex-direction: column;
     }
 }
+
+
+@media (max-width:380px) {
+    .command{
+        flex-direction: column-reverse;
+    }
+
+    .allBottons{
+        width: 71%;
+    }
+    .info_cmnd {
+        width: 66%;
+    }
+    .info1{
+        width: 100%;
+        justify-content: center;
+    }
+    .info2{
+        display: flex;
+        justify-content: space-between;
+    }
+}

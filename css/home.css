@@ -403,9 +403,9 @@ i.fa-times{
     i.fa{
         display: block;
     }
-    /* .section1{
+    .section1{
         height: 95vh;
-    } */
+    }
     .bodysection1{
         flex-direction: column;
     }
@@ -443,8 +443,8 @@ i.fa-times{
     .cont, .cont2{
         justify-content: flex-start;
     }
-    .section2{
-        height: 110vh;
+    .section3{
+        height: 83vh;
     }
     .section3_header{
         flex-direction: column;
