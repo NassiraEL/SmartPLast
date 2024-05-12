@@ -273,7 +273,7 @@ btnAddCommand.addEventListener("click", ()=>{
         if(data == true){
             divReponce.innerHTML = `<h3 class="succes">تمت اضافة الطلب بنجاح</h3>`;
         }else{
-            divReponce.innerHTML = `<h3 class="err">لم يتم إضافة الطلب </h3>`;
+            divReponce.innerHTML = `<h3 class="err">الشريك لديه طلب بالفعل</h3>`;
         }
     })
 })

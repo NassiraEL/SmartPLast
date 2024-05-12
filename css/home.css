@@ -130,6 +130,8 @@ i.fa-times{
 
 .bodysection1{
     display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     height: 100%;
 }
@@ -211,6 +213,8 @@ i.fa-times{
     border-top-left-radius: 50%;
     border-bottom-right-radius: 50%;
     margin: 40px 15px 40px 15px;
+    height: 60vh;
+    width: 50%;
 }
 
 .detaill2 h2, .detaill2 p{
@@ -221,51 +225,55 @@ i.fa-times{
     width: 70%;
 }
 
-.section3{
-    height: 60vh;
-    background-image: linear-gradient(#fff 40%, #4CCD99);
-}
-
-.section3_header{
-    padding: 30px;
+footer, .footer_part1, .footer_part2, .contact{
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.section3_header h2{
-    font-size: 3vh;
-    padding-left: 5px;
-}
-
-.contact{
+    padding: 10px;
     width: 100%;
-    display: grid;
-    grid-template-columns: repeat(2, 0fr);
-    grid-template-rows: repeat(3, 0fr);
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
+
 }
 
-.cont{
-    width: 250px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    text-decoration: none;
-}
-.cont label{
-    padding-left: 10px;
+footer{
+    /* background-image: linear-gradient(#fff 30%, #4CCD99); */
+    /* box-shadow:1px 1px 10px #4CCD99 ; */
+    flex-direction: column;
+    padding: 0;
+    
 }
 
-.cont2{
-    padding-left: 150px;
+.footer_part1{
+    flex-direction: column;
 }
 
-.cont i, .cont label{
+.footer_part1 h2, .copyright p{
+    font-size: 16px;
+}
+
+.footer_part2{
+    width: 60%;
+    justify-content: space-around;
+}
+
+.contact {
+    width: 20%;
+    padding: 5px;
+    justify-content: space-around;
+}
+
+.contact i{
     font-size: 20px;
+    color: #4CCD99;
 }
+
+.copyright{
+    padding: 10px 10px 5px;
+}
+
+.copyright p{
+    color: #4CCD99;
+}
+
 
 
 
@@ -283,13 +291,13 @@ i.fa-times{
         display: block;
     }
     .section1{
-        height: 160vh;
+        height: 130vh;
     }
     .bodysection1{
         flex-direction: column;
     }
     .vedio1, .detaill{
-        width: 100%;
+        width: 65%;
     }
     .detaill h2{
         font-size: 4vh;
@@ -302,35 +310,19 @@ i.fa-times{
         width: 55%;
     }
     .section2{
-        height: 160vh;
+        height: 135vh;
     }
     .detaill2{
-        border-top-left-radius: 10%;
-        border-top-right-radius: 10%;
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
+        border-top-left-radius: 50%;
+        border-top-right-radius: 0%;
+        border-bottom-left-radius: 0%;
+        border-bottom-right-radius: 50%;
         margin: 0;
         padding-bottom: 10vh;
         height: 70vh;
     }
-    .cont, .cont2{
-        justify-content: flex-start;
-    }
-    .section3{
-        height: 60vh;
-    }
-    .section3_header{
-        flex-direction: column;
-    }
-    .cont2{
-        padding-left: 0;
-    }
-    .cont i, .cont label{
-        font-size: 3vh;
-    }
+   
 
-
-    
 }
 
 
@@ -346,7 +338,7 @@ i.fa-times{
         display: block;
     }
     .section1{
-        height: 130vh;
+        height: 140vh;
     }
     .bodysection1{
         flex-direction: column;
@@ -358,7 +350,7 @@ i.fa-times{
         font-size: 4vh;
     }
     .detaill p{
-        font-size: 2.5vh;
+        font-size: 3.5vh;
         width: 75%;
     }
      .liens button{
@@ -369,27 +361,16 @@ i.fa-times{
     }
 
     .detaill2{
-        border-top-left-radius: 3vmin;
-        border-top-right-radius: 3vmin;
+        border-top-left-radius: 10%;
+        border-top-right-radius: 10%;
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
         margin: 0;
         padding-bottom: 10vh;
         height: 70vh;
     }
-    .section3{
-        height: 60vh;
-    }
-    
-    .cont, .cont2{
-        justify-content: flex-start;
-    }
-    
-    .section3_header{
-        flex-direction: column;
-    }  
-    .cont2{
-        padding-left: 0;
+    .footer_part2 {
+        width: 90%;
     }
 }
 
@@ -404,7 +385,7 @@ i.fa-times{
         display: block;
     }
     .section1{
-        height: 95vh;
+        height: 110vh;
     }
     .bodysection1{
         flex-direction: column;
@@ -435,23 +416,27 @@ i.fa-times{
         padding-bottom: 10vh;
         height: 70vh;
     }
-    .contact{
-        display: flex;
-        flex-direction: column;
-        height: 50%;
-    }
-    .cont, .cont2{
+    footer{
+        height: 90vh;
         justify-content: flex-start;
     }
-    .section3{
-        height: 83vh;
+    .footer_part1{
+        height: 20%;
     }
-    .section3_header{
+    .footer_part2{
         flex-direction: column;
-    }  
-    .cont2{
-        padding-left: 0;
+        height: 70%;
     }
+    .contact {
+        width: 55%;
+        padding: 10px;
+        flex-direction: column;
+        gap: 40px;
+    }
+    .copyright{
+        height: 10%;
+    }
+
 }
 
 @media (min-width: 1100px) {

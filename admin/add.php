@@ -22,36 +22,48 @@ try{
 
     //add an order
     if($data[0] == "command"){
-        $date = date('Y-m-d H:i:s');
-        if($data[1][1] == "null"){
-            $sql = "INSERT INTO `command` (PARTNER_ID, COLLECTOR_ID, ADMIN_ID ,COMMAND_STATE, COMMAND_DATE, COMMAND_TYPE) VALUES(:idP, NULL, :adminID, 'ATTEND', :cmndDate, :typecmnd)";
-            $stm = $db->prepare($sql);
-            $stm->bindParam(":idP", $data[1][0]);
-            $stm->bindParam(":adminID", $adminID);
-            $stm->bindParam(":cmndDate", $date);
-            $stm->bindParam(":typecmnd", $data[1][2]);
-            $stm->execute();
+        $stm = $db->prepare("SELECT * FROM `command` WHERE `PARTNER_ID` = :idP AND ( `COMMAND_STATE` = 'ATTEND' OR `COMMAND_STATE` = 'ATTEND')");
+        $stm->bindParam(":idP", $data[1][0]);
+        $stm->execute();
+
+        if($stm->rowCount() >0){
+            $rep = false;
         }else{
-            $sql = "INSERT INTO `command` (PARTNER_ID, COLLECTOR_ID, ADMIN_ID, COMMAND_STATE, COMMAND_DATE, COMMAND_COLLECT_DATE, COMMAND_TYPE) VALUES(:idP, :idC, :adminID,  'INPROCESS', :cmndDate, :dateCollect, :typecmnd)";
-            $stm = $db->prepare($sql);
-            $stm->bindParam(":idP", $data[1][0]);
-            $stm->bindParam(":idC", $data[1][1]);
-            $stm->bindParam(":adminID", $adminID);
-            $stm->bindParam(":dateCollect", $date);
-            $stm->bindParam(":cmndDate", $date);
-            $stm->bindParam(":typecmnd", $data[1][2]);
-            $stm->execute();
-            
+            $date = date('Y-m-d H:i:s');
+
+            if($data[1][1] == "null"){
+                $sql = "INSERT INTO `command` (PARTNER_ID, COLLECTOR_ID, ADMIN_ID ,COMMAND_STATE, COMMAND_DATE, COMMAND_TYPE) VALUES(:idP, NULL, :adminID, 'ATTEND', :cmndDate, :typecmnd)";
+                $stm2 = $db->prepare($sql);
+                $stm2->bindParam(":idP", $data[1][0]);
+                $stm2->bindParam(":adminID", $adminID);
+                $stm2->bindParam(":cmndDate", $date);
+                $stm2->bindParam(":typecmnd", $data[1][2]);
+                $stm2->execute();
+            }else{
+                $sql = "INSERT INTO `command` (PARTNER_ID, COLLECTOR_ID, ADMIN_ID, COMMAND_STATE, COMMAND_DATE, COMMAND_COLLECT_DATE, COMMAND_TYPE) VALUES(:idP, :idC, :adminID,  'INPROCESS', :cmndDate, :dateCollect, :typecmnd)";
+                $stm2 = $db->prepare($sql);
+                $stm2->bindParam(":idP", $data[1][0]);
+                $stm2->bindParam(":idC", $data[1][1]);
+                $stm2->bindParam(":adminID", $adminID);
+                $stm2->bindParam(":dateCollect", $date);
+                $stm2->bindParam(":cmndDate", $date);
+                $stm2->bindParam(":typecmnd", $data[1][2]);
+                $stm2->execute();
+                
+            }
+
+            if($stm2->rowCount() >0){
+                $rep = true;
+                
+            }
         }
 
         
+        
 
-        if($stm->rowCount() >0){
-            $rep = true;
-            
-        }else{
-            $rep = false;
-        }
+        
+
+       
         
         echo json_encode($rep);
     }
