@@ -40,8 +40,21 @@
         <script src="https://cdn.jsdelivr.net/npm/jwt-decode@4.0.0/build/cjs/index.min.js"></script>
 
         <script>
-            function hundelCredentialResponse(responce){
-                console.log(responce);
+            function hundelCredentialResponse(response){
+                console.log(response);
+                 // Post JWT token to server-side
+                fetch("loginWithGoogle.php", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ request_type:'user_auth', credential: response.credential }),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if(data == true){
+                        window.location.href = `profilPartner.html`;
+                    }
+                })
+                .catch(console.error);
             }
         </script>
 
@@ -62,7 +75,7 @@
             data-locale="ar"
             data-logo_alignment="left">
         </div>
-        </div>
+    </div>
     <div class="section1" id="section1">
         <div class="img1">
             <img src="images/img2.png" alt="">

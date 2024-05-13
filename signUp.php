@@ -43,11 +43,12 @@ if(!empty($_POST['name'])  && !empty($_POST['tel'])  && !empty($_POST['email']) 
                 //insert data of user
     
                 if($nbrErr<=0){
+                    $hashedData = hash('sha3-256', $password);
                     $stm = $db->prepare("INSERT INTO `partner` (PARTNER_NAME,PARTNER_PHONE,PARTNER_EMAIL,PARTNER_PASSWORD,PARTNER_LONGITUDE,PARTNER_LATITUDE,PARTNER_STATE) VALUES(:name, :tele, :email, :password, :longitude, :latitude, 'ACTIVE')");
                     $stm->bindParam(":name", $name);
                     $stm->bindParam(":tele", $tel);
                     $stm->bindParam(":email", $email);
-                    $stm->bindParam(":password", $password);
+                    $stm->bindParam(":password", $hashedData);
                     $stm->bindParam(":longitude", $longitude);
                     $stm->bindParam(":latitude", $latitude);
                     $stm->execute();

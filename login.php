@@ -11,6 +11,7 @@ if(!empty($_POST['email'])  && !empty($_POST['password'])){
 
         $email = validate($_POST['email']);
         $password = validate($_POST['password']);
+        $hashedData = hash('sha3-256', $password);
 
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             echo "صيغة البريد الإلكتروني غير صالحة";
@@ -19,7 +20,7 @@ if(!empty($_POST['email'])  && !empty($_POST['password'])){
                 include_once 'connection.php';
                 $stm = $db->prepare("SELECT * FROM `partner` WHERE `PARTNER_EMAIL`=:email AND `PARTNER_PASSWORD`=:password AND `PARTNER_STATE` ='ACTIVE'");
                 $stm->bindParam(":email", $email);
-                $stm->bindParam(":password", $password);
+                $stm->bindParam(":password", $hashedData);
                 $stm->execute();
     
                 if($stm->rowCount() > 0){
@@ -30,7 +31,7 @@ if(!empty($_POST['email'])  && !empty($_POST['password'])){
                 }else{
                     $stm = $db->prepare("SELECT * FROM `collector` WHERE `COLLECTOR_EMAIL`=:email AND `COLLECTOR_PASSWORD`=:password AND `COLLECTOR_STATE` ='ACTIVE'");
                     $stm->bindParam(":email", $email);
-                    $stm->bindParam(":password", $password);
+                    $stm->bindParam(":password", $hashedData);
                     $stm->execute();
                     if($stm->rowCount() > 0){
                         $expiration = time() + (10 * 365 * 24 * 60 * 60); 
@@ -40,7 +41,7 @@ if(!empty($_POST['email'])  && !empty($_POST['password'])){
                     }else{
                         $stm = $db->prepare("SELECT * FROM `admin` WHERE `ADMIN_EMAIL`=:email AND `ADMIN_PASSWORD`=:password AND `ADMIN_STATE` ='ACTIVE'");
                         $stm->bindParam(":email", $email);
-                        $stm->bindParam(":password", $password);
+                        $stm->bindParam(":password", $hashedData);
                         $stm->execute();
                         if($stm->rowCount() > 0){
                             $expiration = time() + (10 * 365 * 24 * 60 * 60); 
