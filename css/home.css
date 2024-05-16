@@ -251,7 +251,7 @@ footer{
 }
 
 .footer_part2{
-    width: 60%;
+    width: 100%;
     justify-content: space-around;
 }
 
@@ -368,9 +368,6 @@ footer{
         margin: 0;
         padding-bottom: 10vh;
         height: 70vh;
-    }
-    .footer_part2 {
-        width: 90%;
     }
 }
 

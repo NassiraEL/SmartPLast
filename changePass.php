@@ -24,8 +24,11 @@ if(!empty($_POST['pass'])  && !empty($_POST['passConf'])){
     }else{
         try{
             include_once 'connection.php';
+
+            $hashedData = hash('sha3-256', $pass);
+
             $stm = $db->prepare("UPDATE $who_forgot SET `{$who}_PASSWORD`=:password WHERE `{$who}_EMAIL` = :email");
-            $stm->bindParam(":password", $pass);
+            $stm->bindParam(":password", $hashedData);
             $stm->bindParam(":email", $email);
             $stm->execute();
             echo "true";

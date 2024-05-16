@@ -28,9 +28,10 @@ if(!empty($jsonObj->request_type) && $jsonObj->request_type == 'user_auth'){
          
         if($stm->rowCount() > 0){  
             // Update user data if already exists 
-            $sql = "UPDATE `partner` SET `PARTNER_NAME` = :namep, `PARTNER_STATE` = 'ACTIVE' "; 
+            $sql = "UPDATE `partner` SET `PARTNER_NAME` = :namep, `PARTNER_STATE` = 'ACTIVE' WHERE `PARTNER_EMAIL` = :email"; 
             $stm = $db->prepare($sql);
             $stm->bindParam(":namep", $name);
+            $stm->bindParam(":email", $email); 
              
         }else{ 
             // Insert user data 

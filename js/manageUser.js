@@ -127,25 +127,28 @@ function change_state_user(idUser){
 
 //delete a user
 function delete_user(idUser){
-    let userConfirmation = confirm("هل أنت متأكد؟");
-    if(userConfirmation){
-        let data_send = [idUser, typeUser];
-        fetch("delete.php", {
-            method: 'POST',
-            headers: {
-                "Content-type": "application/json"
-            },
-            body: JSON.stringify(data_send)
-        })
-        .then(rep => rep.json())
-        .then(data =>{
-            console.log(data);
-            if(data == true){
-                document.querySelector(`.U${idUser}`).parentElement.parentElement.style.display = "none";
-            }
-        })
+    // let userConfirmation = confirm("هل أنت متأكد؟");
+    // if(userConfirmation){
+    //     let data_send = [idUser, typeUser];
+    //     fetch("delete.php", {
+    //         method: 'POST',
+    //         headers: {
+    //             "Content-type": "application/json"
+    //         },
+    //         body: JSON.stringify(data_send)
+    //     })
+    //     .then(rep => rep.json())
+    //     .then(data =>{
+    //         console.log(data);
+    //         if(data == true){
+    //             document.querySelector(`.U${idUser}`).parentElement.parentElement.style.display = "none";
+    //         }
+    //     })
         
-    }
+    // }
+    partUser.style.opacity = "0.4";
+    partUser.style.backgroundColor = "#D6D6D6";
+    confirmation("helloo");
     
 }
 
@@ -277,3 +280,44 @@ logoutBotton.addEventListener("click", function(){
     xml.send();
     
 })
+
+
+//confirmation windows
+function confirmation(msg){
+    //cree window
+    let window_conf = document.createElement("div");
+
+    //cree titel
+    let titel = document.createElement("h1");
+    let titelText = document.createTextNode(msg);
+    titel.append(titelText);
+
+    //cree buttons YES and NO
+    let btnYes = document.createElement("button");
+    let btnYesContent = document.createTextNode("yes");
+    btnYes.append(btnYesContent);
+    btnYes.id = "btnYes";
+
+    let btnNo = document.createElement("button");
+    let btnNoContent = document.createTextNode("NO");
+    btnNo.append(btnNoContent);
+    btnNo.id = "btnNo";
+
+    //div contient all buttons 
+    let Buttons_Window_conf = document.createElement("div");
+    Buttons_Window_conf.append(btnYes);
+    Buttons_Window_conf.append(btnNo);
+
+
+    //append element in window
+    window_conf.append(titel);
+    window_conf.append(Buttons_Window_conf);
+
+    window_conf.classList.add("window_conf");
+
+    document.body.append(window_conf);
+
+
+
+}
+

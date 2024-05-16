@@ -39,25 +39,6 @@
         <script src="https://accounts.google.com/gsi/client" async></script>
         <script src="https://cdn.jsdelivr.net/npm/jwt-decode@4.0.0/build/cjs/index.min.js"></script>
 
-        <script>
-            function hundelCredentialResponse(response){
-                console.log(response);
-                 // Post JWT token to server-side
-                fetch("loginWithGoogle.php", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ request_type:'user_auth', credential: response.credential }),
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if(data == true){
-                        window.location.href = `profilPartner.html`;
-                    }
-                })
-                .catch(console.error);
-            }
-        </script>
-
         <div id="g_id_onload"
             data-client_id="23257866820-gb5k2sjv3r022hhh1phs341t9d3p1ooj.apps.googleusercontent.com"
             data-context="signin"

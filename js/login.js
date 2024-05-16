@@ -31,3 +31,22 @@ btn.addEventListener("click", function(){
         }
     }
 })
+
+
+//login with google
+function hundelCredentialResponse(response){
+    console.log(response);
+     // Post JWT token to server-side
+    fetch("loginWithGoogle.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ request_type:'user_auth', credential: response.credential }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        if(data == true){
+            window.location.href = `profilPartner.html`;
+        }
+    })
+    .catch(console.error);
+}

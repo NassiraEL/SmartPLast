@@ -8,16 +8,16 @@ $table = $data[1];
 try{
     include_once '../connection.php';
 
-    $stm = $db->prepare("SELECT `ADMIN_ID` FROM `admin` WHERE `ADMIN_EMAIL` = :email");
-    $stm->bindParam(":email", $adminEmail);
-    $stm->execute();
-    $res = $stm->fetch();
-    $adminID = $res["ADMIN_ID"];
+    // $stm = $db->prepare("SELECT `ADMIN_ID` FROM `admin` WHERE `ADMIN_EMAIL` = :email");
+    // $stm->bindParam(":email", $adminEmail);
+    // $stm->execute();
+    // $res = $stm->fetch();
+    // $adminID = $res["ADMIN_ID"];
 
-    $column_user_id = strtoupper($table) . '_ID'; 
-    $stm2 = $db->prepare("DELETE FROM $table WHERE  $column_user_id = :iduser");
-    $stm2->bindParam(":iduser", $idUser);
-    $stm2->execute();
+    // $column_user_id = strtoupper($table) . '_ID'; 
+    // $stm2 = $db->prepare("DELETE FROM $table WHERE  $column_user_id = :iduser");
+    // $stm2->bindParam(":iduser", $idUser);
+    // $stm2->execute();
     $r = true;
     echo json_encode($r);
 

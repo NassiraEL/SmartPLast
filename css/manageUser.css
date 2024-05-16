@@ -205,6 +205,43 @@ tbody .fa{
 }
 
 
+/* window confirmation */
+.window_conf{
+    background-color: #fff;
+    width: 30%;
+    height: 200px;
+    position: fixed;
+    top: 38%;
+    box-shadow: 1px 8px 15px gray;
+    border-radius: 5px;
+}
+
+.window_conf div{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 70%;
+}
+
+.window_conf button{
+    font-size: 16px;
+    padding: 5px 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+}
+ 
+.window_conf #btnYes{
+    background-color: #4788F4;
+    color: #fff;
+}
+
+
+.window_conf #btnNo{
+    border: 1px solid #4788F4;
+}
+
 
 @media (max-width:800px){
     .edit_data_user, .addUser{
