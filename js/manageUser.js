@@ -127,28 +127,20 @@ function change_state_user(idUser){
 
 //delete a user
 function delete_user(idUser){
-    // let userConfirmation = confirm("هل أنت متأكد؟");
-    // if(userConfirmation){
-    //     let data_send = [idUser, typeUser];
-    //     fetch("delete.php", {
-    //         method: 'POST',
-    //         headers: {
-    //             "Content-type": "application/json"
-    //         },
-    //         body: JSON.stringify(data_send)
-    //     })
-    //     .then(rep => rep.json())
-    //     .then(data =>{
-    //         console.log(data);
-    //         if(data == true){
-    //             document.querySelector(`.U${idUser}`).parentElement.parentElement.style.display = "none";
-    //         }
-    //     })
-        
-    // }
     partUser.style.opacity = "0.4";
     partUser.style.backgroundColor = "#D6D6D6";
-    confirmation("helloo");
+   
+    confirmation("هل أنت متأكد؟")
+    .then(data =>{
+        if(data == true){
+            partUser.style.opacity = "1";
+            partUser.style.backgroundColor = "transparent";
+            document.querySelector(`.U${idUser}`).parentElement.parentElement.style.display = "none";
+        }else{
+            partUser.style.opacity = "1";
+            partUser.style.backgroundColor = "transparent";
+        }
+    })
     
 }
 
@@ -294,12 +286,12 @@ function confirmation(msg){
 
     //cree buttons YES and NO
     let btnYes = document.createElement("button");
-    let btnYesContent = document.createTextNode("yes");
+    let btnYesContent = document.createTextNode("نعم");
     btnYes.append(btnYesContent);
     btnYes.id = "btnYes";
 
     let btnNo = document.createElement("button");
-    let btnNoContent = document.createTextNode("NO");
+    let btnNoContent = document.createTextNode("لا");
     btnNo.append(btnNoContent);
     btnNo.id = "btnNo";
 
@@ -317,7 +309,17 @@ function confirmation(msg){
 
     document.body.append(window_conf);
 
+    return new Promise((clickButton)=>{
+        btnYes.onclick = () =>{
+            clickButton(true);
+           document.body.removeChild(window_conf);
+        }
 
+        btnNo.onclick = () =>{
+            clickButton(false);
+           document.body.removeChild(window_conf);
+        }
+    })
 
 }
 
