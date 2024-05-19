@@ -92,7 +92,16 @@ search_User("");
 //location of the order
 function  locationUser(lat, lng) {
     if(lat == null || lng == null){
-        alert("لا يوجد موقع، يرجى التواصل مع الشريك لإضافته");
+        partUser.style.opacity = "0.4";
+        partUser.style.backgroundColor = "#D6D6D6";
+
+        notification("لا يوجد موقع، يرجى التواصل معه لإضافته")
+        .then(data =>{
+            if(data == true){
+                partUser.style.opacity = "1";
+                partUser.style.backgroundColor = "transparent";
+            }
+        })
     }else{
         window.location.href = `https://www.google.com/maps/@${lat},${lng},20z?authuser=0&entry=ttu`;
     }
@@ -318,6 +327,45 @@ function confirmation(msg){
         btnNo.onclick = () =>{
             clickButton(false);
            document.body.removeChild(window_conf);
+        }
+    })
+
+}
+
+// alert function
+function notification(msg){
+    //cree window
+    let window_alert = document.createElement("div");
+
+    //cree titel
+    let titel = document.createElement("h1");
+    let titelText = document.createTextNode(msg);
+    titel.append(titelText);
+
+    //cree buttonok
+    let btnOK = document.createElement("button");
+    let btnOKContent = document.createTextNode("حسنًا");
+    btnOK.append(btnOKContent);
+    btnOK.id = "btnYes";
+
+
+    //div contient all buttons 
+    let Buttons_Window_alert = document.createElement("div");
+    Buttons_Window_alert.append(btnOK);
+
+
+    //append element in window
+    window_alert.append(titel);
+    window_alert.append(Buttons_Window_alert);
+
+    window_alert.classList.add("window_alert");
+
+    document.body.append(window_alert);
+
+    return new Promise((clickButton)=>{
+        btnOK.onclick = () =>{
+            clickButton(true);
+           document.body.removeChild(window_alert);
         }
     })
 

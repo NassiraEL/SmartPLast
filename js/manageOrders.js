@@ -118,7 +118,16 @@ search_command('', "command");
 //location of the order
 function  locationUser(lat, lng) {
     if(lat == null || lng == null){
-        alert("لا يوجد موقع، يرجى التواصل مع الشريك لإضافته");
+        section_orders.style.opacity = "0.4";
+        section_orders.style.backgroundColor = "#D6D6D6";
+
+        notification("لا يوجد موقع، يرجى التواصل معه لإضافته")
+        .then(data =>{
+            if(data == true){
+                section_orders.style.opacity = "1";
+                section_orders.style.backgroundColor = "transparent";
+            }
+        })
     }else{
         window.location.href = `https://www.google.com/maps/@${lat},${lng},20z?authuser=0&entry=ttu`;
     }
@@ -161,10 +170,30 @@ function set_state_command(IDcmnd){
     let state = document.querySelector(`.S${IDcmnd}`).value;
     console.log(state , IDcol);
     if(state == "INPROCESS" && IDcol == "null"){
-        alert("المرجو اختيار المجمع أولا !");
+       
+        section_orders.style.opacity = "0.4";
+        section_orders.style.backgroundColor = "#D6D6D6";
+
+        notification("المرجو اختيار المجمع أولا !")
+        .then(data =>{
+            if(data == true){
+                section_orders.style.opacity = "1";
+                section_orders.style.backgroundColor = "transparent";
+            }
+        })
+
         document.querySelector(`.S${IDcmnd}`).value = "ATTEND";
     }else if(state == "DONE" && IDcol == "null"){
-        alert("المرجو اختيار المجمع أولا !");
+        section_orders.style.opacity = "0.4";
+        section_orders.style.backgroundColor = "#D6D6D6";
+
+        notification("المرجو اختيار المجمع أولا !")
+        .then(data =>{
+            if(data == true){
+                section_orders.style.opacity = "1";
+                section_orders.style.backgroundColor = "transparent";
+            }
+        })
         document.querySelector(`.S${IDcmnd}`).value = "ATTEND";
     } else{
         let setState_in_command = [IDcmnd, IDcol, "state", state];
@@ -277,3 +306,43 @@ btnAddCommand.addEventListener("click", ()=>{
         }
     })
 })
+
+
+// alert function
+function notification(msg){
+    //cree window
+    let window_alert = document.createElement("div");
+
+    //cree titel
+    let titel = document.createElement("h1");
+    let titelText = document.createTextNode(msg);
+    titel.append(titelText);
+
+    //cree buttonok
+    let btnOK = document.createElement("button");
+    let btnOKContent = document.createTextNode("حسنًا");
+    btnOK.append(btnOKContent);
+    btnOK.id = "btnYes";
+
+
+    //div contient all buttons 
+    let Buttons_Window_alert = document.createElement("div");
+    Buttons_Window_alert.append(btnOK);
+
+
+    //append element in window
+    window_alert.append(titel);
+    window_alert.append(Buttons_Window_alert);
+
+    window_alert.classList.add("window_alert");
+
+    document.body.append(window_alert);
+
+    return new Promise((clickButton)=>{
+        btnOK.onclick = () =>{
+            clickButton(true);
+           document.body.removeChild(window_alert);
+        }
+    })
+
+}

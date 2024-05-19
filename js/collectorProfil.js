@@ -1,5 +1,6 @@
 let logout = document.querySelector(".logout");
 let allCommand = document.querySelector(".allCommand");
+let partCollector = document.querySelector(".partCollector");
 
 logout.addEventListener("click", function(){
     let xml = new XMLHttpRequest();
@@ -86,8 +87,57 @@ function process(commandID, collectorID){
 
 function  locationUser(lat, lng) {
     if(lat == null || lng == null){
-        alert("لا يوجد موقع، يرجى التواصل مع الشريك ");
+        partCollector.style.opacity = "0.4";
+        partCollector.style.backgroundColor = "#D6D6D6";
+
+        notification("لا يوجد موقع، يرجى التواصل مع الشريك ")
+        .then(data =>{
+            if(data == true){
+                partCollector.style.opacity = "1";
+                partCollector.style.backgroundColor = "transparent";
+            }
+        })
     }else{
         window.location.href = `https://www.google.com/maps/@${lat},${lng},20z?authuser=0&entry=ttu`;
     }
+}
+
+
+// alert function
+function notification(msg){
+    //cree window
+    let window_alert = document.createElement("div");
+
+    //cree titel
+    let titel = document.createElement("h1");
+    let titelText = document.createTextNode(msg);
+    titel.append(titelText);
+
+    //cree buttonok
+    let btnOK = document.createElement("button");
+    let btnOKContent = document.createTextNode("حسنًا");
+    btnOK.append(btnOKContent);
+    btnOK.id = "btnYes";
+
+
+    //div contient all buttons 
+    let Buttons_Window_alert = document.createElement("div");
+    Buttons_Window_alert.append(btnOK);
+
+
+    //append element in window
+    window_alert.append(titel);
+    window_alert.append(Buttons_Window_alert);
+
+    window_alert.classList.add("window_alert");
+
+    document.body.append(window_alert);
+
+    return new Promise((clickButton)=>{
+        btnOK.onclick = () =>{
+            clickButton(true);
+           document.body.removeChild(window_alert);
+        }
+    })
+
 }

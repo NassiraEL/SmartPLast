@@ -206,7 +206,7 @@ tbody .fa{
 
 
 /* window confirmation */
-.window_conf{
+.window_conf, .window_alert{
     background-color: #fff;
     width: 40%;
     height: 200px;
@@ -216,7 +216,7 @@ tbody .fa{
     border-radius: 5px;
 }
 
-.window_conf div{
+.window_conf div, .window_alert div{
     width: 100%;
     display: flex;
     justify-content: space-around;
@@ -224,7 +224,11 @@ tbody .fa{
     height: 70%;
 }
 
-.window_conf button{
+.window_alert div{
+    height: 30%;
+}
+
+.window_conf button, .window_alert button{
     font-size: 16px;
     padding: 5px 40px;
     cursor: pointer;
@@ -232,7 +236,7 @@ tbody .fa{
     border-radius: 10px;
 }
  
-.window_conf #btnYes{
+.window_conf #btnYes, .window_alert #btnYes{
     background-color: #4788F4;
     color: #fff;
 }
@@ -244,7 +248,7 @@ tbody .fa{
 }
 
 @media (max-width:900px){
-    .window_conf{
+    .window_conf, .window_alert{
         width: 50%;
     }
 }
@@ -297,7 +301,7 @@ tbody .fa{
     .edit_data_user, .addUser{
         width: 95%;
     }
-    .window_conf{
+    .window_conf, .window_alert{
         width: 80%;
     }
     

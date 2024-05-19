@@ -15,16 +15,22 @@
     src: url('Tajawal-Regular.ttf');
 }
 
-/* body{
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.partPartner{
     width: 100%;
-    height: 100vh;
-    overflow: hidden;
-} */
+    min-height: 100vh;
+}
 
 header{
     padding: 15px 30px;
     display: flex;
     justify-content: space-between;
+    background-color: #fff;
 }
 
 .logo, .logout{
@@ -319,6 +325,66 @@ span{
 }
 
 
+/* window confirmation */
+.window_conf, .window_alert{
+    background-color: #fff;
+    width: 40%;
+    height: 200px;
+    position: fixed;
+    top: 38%;
+    box-shadow: 1px 8px 15px gray;
+    border-radius: 5px;
+}
+
+.window_conf div, .window_alert div{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 70%;
+}
+
+.window_alert div{
+    height: 30%;
+}
+
+.window_conf button, .window_alert button{
+    font-size: 16px;
+    padding: 5px 40px;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+}
+ 
+.window_conf #btnYes, .window_alert #btnYes{
+    background-color: #4788F4;
+    color: #fff;
+}
+
+
+.window_conf #btnNo{
+    border: 1px solid #4788F4;
+    background: transparent;
+}
+
+.window_conf h1,  .window_alert h1{
+    width: 100%;
+    text-align: center;
+    font-family: "tajawal";
+    font-size: 25px;
+    padding: 30px;
+}
+
+@media (max-width:1050px){
+    .window_conf, .window_alert{
+        width: 50%;
+    }
+    .window_conf div{
+        height: 30%;
+    }
+}
+
+
 @media (max-width:580px) {
     .section2 h2{
         margin-bottom: 10px;
@@ -376,11 +442,20 @@ span{
     .donation h2{
         padding: 31px;
     }
+    .window_conf{
+        width: 95%;
+    }
+    .window_conf h1,  .window_alert h1{
+        font-size: 20px;
+    }
 }
 
-@media (max-width:380px) {
+@media (max-width:400px) {
     .states {
         width: 335px;
         height: 35vh;
+    }
+    .window_alert{
+        width: 95%;
     }
 }

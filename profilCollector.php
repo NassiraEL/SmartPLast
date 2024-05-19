@@ -38,7 +38,7 @@ try{
             echo "</div>
                     <div class='info_cmnd'>
                         <div class='info1'>
-                            <i class='fas fa-map-marker-alt' onclick='locationUser($partnerLatitude, $partnerLongitude)'></i>
+                            <i class='fas fa-map-marker-alt'  onclick='locationUser(" . ($partnerLatitude ?? 'null') . ", " . ($partnerLongitude ?? 'null') . ")'></i>
                             <h4>$partnerName</h4>
                         </div>
                         <div class='info2' dir='rtl'>
