@@ -29,13 +29,17 @@ btnSend.addEventListener("click", function(){
     xml.onload = function (){
         if(xml.readyState === XMLHttpRequest.DONE){
             if(xml.status === 200){
-                if(xml.responseText.trim().toLowerCase() === "true"){
+                let data = JSON.parse(xml.response);
+                console.log(data);
+                if(data["rep"] == true){
+                    console.log(data);
+                    sessionStorage.setItem("data", JSON.stringify(data));
                     section2.style.display = "none";
                     section3.style.display = "block";
                     
                 }else{
-                    rep1.innerHTML = `<input type='text' disabled value="${xml.responseText}" style='background:#d64040e2; color:#fff;'>`;
-                    console.log(xml.responseText);
+                    rep1.innerHTML = `<input type='text' disabled value="${data["rep"]}" style='background:#d64040e2; color:#fff;'>`;
+                    console.log(data["rep"]);
                 }
             }
         }
@@ -47,10 +51,13 @@ btnSend.addEventListener("click", function(){
 btnValidate.addEventListener("click", function(){
     const form = document.querySelector('#section3 form');
     let code = form.elements.code.value;
+    let data = JSON.parse(sessionStorage.getItem("data"));
+    let codeTrue = data["code"]
+    console.log(data["code"]);
     let xml = new XMLHttpRequest();
     xml.open("POST", "validate.php", true);
     xml.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xml.send("code="+code);
+    xml.send("code="+code +"&codeTrue=" + codeTrue);
     xml.onload = function (){
         if(xml.readyState === XMLHttpRequest.DONE){
             if(xml.status === 200){
@@ -74,12 +81,15 @@ btnValidate.addEventListener("click", function(){
 
 btnchange.addEventListener("click", function(){
     const form = document.querySelector('#section4 form');
+    let data = JSON.parse(sessionStorage.getItem("data"));
+    let who_forgot = data["who_forgot"];
+    let email = data["email"];
     let pass = form.elements.pass.value;
     let passConf = form.elements.passConf.value;
     let xml = new XMLHttpRequest();
     xml.open("POST", "changePass.php", true);
     xml.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xml.send("pass="+pass +"&passConf="+passConf);
+    xml.send("pass="+pass +"&passConf="+passConf + "&who_forgot=" + who_forgot+ "&email=" + email);
     xml.onload = function (){
         if(xml.readyState === XMLHttpRequest.DONE){
             if(xml.status === 200){

@@ -82,9 +82,9 @@ form{
 input{
     padding: 10px 20px;
     width: 100%;
-    border: none;
+    border: 1px solid #4CCD99;
     border-radius: 20px;
-    background-color: #ECECEC;
+    background-color: #fff;
 }
 
 input:focus{
@@ -159,6 +159,10 @@ label{
     }
     .btn button{
         width: 100%;
+    }
+    input{
+        border: none;
+        background-color: #ECECEC;
     }
     
 }

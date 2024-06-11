@@ -1,6 +1,6 @@
 <?php
-session_start();
-$codeTrue = $_SESSION["code"];
+
+$codeTrue = $_POST["codeTrue"];
 $code = $_POST["code"];
 
 if($code == $codeTrue){

@@ -102,13 +102,15 @@ i.fas{
 
 .nav2 li{
    height: 10%;
-   width: 40%;
+   width: 250px;
 }
 
 .nav2 li a{
     text-align: end;
     color: #fff;
     padding-right: 30px;
+    width: 90%;
+    text-align: center;
 }
 
 ul li a:hover{
@@ -182,6 +184,7 @@ h1{
     .allDash{
         width: 45%;
     }
+    
 
 }
 

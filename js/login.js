@@ -33,20 +33,43 @@ btn.addEventListener("click", function(){
 })
 
 
-//login with google
-function hundelCredentialResponse(response){
+
+// login with google
+function handleCredentialResponse(response) {
     console.log(response);
-     // Post JWT token to server-side
-    fetch("loginWithGoogle.php", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ request_type:'user_auth', credential: response.credential }),
-    })
-    .then(response => response.json())
-    .then(data => {
-        if(data == true){
-            window.location.href = `profilPartner.html`;
-        }
-    })
-    .catch(console.error);
+
+    fetch("https://www.googleapis.com/oauth2/v3/tokeninfo?id_token=" + response.credential)
+        .then(response => response.json())
+        .then(data => {
+            const userId = data.sub; // Google user ID
+
+            fetch(`https://people.googleapis.com/v1/people/${userId}?personFields=phoneNumbers`, {
+                headers: {
+                    "Authorization": `Bearer ${response.credential}`
+                }
+            })
+            .then(response => response.json())
+            .then(profileData => {
+                const phoneNumber = profileData.phoneNumbers ? profileData.phoneNumbers[0].value : '';
+                // Post JWT token and phone number to server-side
+                fetch("loginWithGoogle.php", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        request_type: 'user_auth',
+                        credential: response.credential,
+                        phone: phoneNumber
+                    }),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data == true) {
+                        window.location.href = `profilPartner.html`;
+                    }
+                })
+                .catch(console.error);
+            })
+            .catch(console.error);
+        })
+        .catch(console.error);
 }

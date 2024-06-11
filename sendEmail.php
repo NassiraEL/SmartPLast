@@ -34,9 +34,11 @@ if(!empty($_POST['email'])){
                 $stm->execute();
 
                 if($stm->rowCount() <= 0){
-                    echo "البريد الإلكتروني غير موجود";
+                    $err=  "البريد الإلكتروني غير موجود";
+                    echo json_encode(["rep" => $err]);
                 }else{
                     $_SESSION["who_forgot"] = "admin";
+                    $who_forgot = "admin";
                     $mail->setFrom('coolplast51@gmail.com','SmartPlast');
                     $mail->addAddress($email);
                     $mail->Subject = "رمز التحقق";
@@ -45,10 +47,11 @@ if(!empty($_POST['email'])){
                     $_SESSION["email"] = $email;
                     $mail->Body = "رمز التحقق من عنوان البريد الإلكتروني : <h3 style='color:blue;'>$code</h3>";
                     $mail->send();
-                    echo "true";
+                    echo json_encode(["rep" => true,"code" => $code, "email" => $email, "who_forgot" => $who_forgot]);
                 }
             }else{
                 $_SESSION["who_forgot"] = "collector";
+                $who_forgot = "collector";
                 $mail->setFrom('coolplast51@gmail.com','SmartPlast');
                 $mail->addAddress($email);
                 $mail->Subject = "رمز التحقق";
@@ -57,10 +60,11 @@ if(!empty($_POST['email'])){
                 $_SESSION["email"] = $email;
                 $mail->Body = "رمز التحقق من عنوان البريد الإلكتروني : <h3 style='color:blue;'>$code</h3>";
                 $mail->send();
-                echo "true";
+                echo json_encode(["rep" => true,"code" => $code, "email" => $email, "who_forgot" => $who_forgot]);
             }
         }else{
             $_SESSION["who_forgot"] = "partner";
+            $who_forgot = "partner";
             $mail->setFrom('coolplast51@gmail.com','SmartPlast');
             $mail->addAddress($email);
             $mail->Subject = "رمز التحقق";
@@ -69,14 +73,15 @@ if(!empty($_POST['email'])){
             $_SESSION["email"] = $email;
             $mail->Body = "رمز التحقق من عنوان البريد الإلكتروني : <h3 style='color:blue;'>$code</h3>";
             $mail->send();
-            echo "true";
+            echo json_encode(["rep" => true,"code" => $code, "email" => $email, "who_forgot" => $who_forgot]);
 
         }
     }catch(PDOException $e){
         echo $e->getMessage();
     }
 }else{
-    echo "يرجى ملء هذا الحقل";
+    $err =  "يرجى ملء هذا الحقل";
+    echo json_encode(["rep" => $err]);
 }
 ?>
 

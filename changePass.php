@@ -1,8 +1,8 @@
 <?php
 
 session_start();
-$email = $_SESSION["email"];
-$who_forgot = $_SESSION["who_forgot"];
+$email = $_POST["email"];
+$who_forgot = $_POST["who_forgot"];
 $who = strtoupper($who_forgot);
 
 function validate($data){
